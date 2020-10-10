@@ -4,23 +4,71 @@
 
 
 
-class slime {
+class Slime {
 
 private:
-
-
+    sf::RectangleShape _izEye;
+    sf::RectangleShape _derEye;
+    sf::RectangleShape _bocaElMasGrande;
+    sf::RectangleShape _borde;
 public:
-    void dibujarSlime();
+    void construirSlime(sf::RenderWindow & pantalla);
+    void moverSlime(sf::RenderWindow & pantalla, sf::Vector2i);
+    void dibujarSlime(sf::RenderWindow & pantalla);
+    void pestañeoSlime();
 
 
 };
 
-void slime::dibujarSlime() {
+void Slime::construirSlime(sf::RenderWindow &pantalla) {
+
+    _derEye.setSize(sf::Vector2f(100.f, 150.f));
+    _izEye.setSize(sf::Vector2f(100.f, 150.f));
+    _bocaElMasGrande.setSize(sf::Vector2f(80.f, 80.f));
+    _borde.setSize(sf::Vector2f(600.f, 600.f));
+    
+
+    _izEye.setFillColor(sf::Color::Black);
+    _derEye.setFillColor(sf::Color::Black);
+    _bocaElMasGrande.setFillColor(sf::Color::Black);
+    _borde.setFillColor(sf::Color::Green);
+    _borde.setOutlineThickness(20.f);
+    _borde.setOutlineColor(sf::Color::Black);
+}
+
+void Slime::moverSlime(sf::RenderWindow &pantalla,sf::Vector2i posmouse) {
 
 
+    
+    _izEye.setPosition(posmouse.x - 200, posmouse.y - 75);
+    _derEye.setPosition(posmouse.x + 100, posmouse.y - 75);
+    _bocaElMasGrande.setPosition(posmouse.x + 20, posmouse.y + 130);
 
+    _borde.setPosition(posmouse.x - 300, posmouse.y - 270);
+
+    
 
 }
+
+void Slime::dibujarSlime(sf::RenderWindow &pantalla) {
+    
+    pantalla.draw(_borde);
+    pantalla.draw(_izEye);
+    pantalla.draw(_derEye);
+    pantalla.draw(_bocaElMasGrande);
+}
+
+void Slime::pestañeoSlime() {
+    
+    
+    
+    
+    _izEye.setSize
+    _derEye.setSize
+
+}
+
+
 
 
 
@@ -28,72 +76,46 @@ int main(){
 
 
     sf::RenderWindow window(sf::VideoMode(1200,800), "SFML works!");
-    sf::RectangleShape fondo(sf::Vector2f(1200.f, 800.f));
-    sf::Sprite izEye;
-    sf::RectangleShape derEye(sf::Vector2f(100.f, 150.f));
-    sf::RectangleShape bocaElMasGrande(sf::Vector2f(80.f, 80.f));
-
-    sf::RectangleShape borde1(sf::Vector2f(600.f, 600.f));
-    sf::RectangleShape borde2(sf::Vector2f(575.f, 575.f));
-    borde1.setFillColor(sf::Color::Black);
-    borde2.setFillColor(sf::Color::Green);
-
-
+    sf::RectangleShape fondo(sf::Vector2f(1200, 800));
     fondo.setFillColor(sf::Color::Green);
-   // izEye.setFillColor(sf::Color::Black);
-    derEye.setFillColor(sf::Color::Black);
-    bocaElMasGrande.setFillColor(sf::Color::Black);
 
-    sf::Texture sprite;
-
-
+    Slime limo;
+    limo.construirSlime(window);
 
     window.setMouseCursorVisible(false);
-
-
-
-    if (!sprite.loadFromFile("char.png")) {
-        std::cout << "fail";
-       
-    }
-
-    izEye.setTexture(sprite);
     
+
     while (window.isOpen()){
-        sf::Vector2i posmouse;
+
         sf::Event event;
+
         while (window.pollEvent(event)){
             
-            
+            sf::Vector2i posmouse;
             switch (event.type){
 
             case sf::Event::Closed:window.close(); break;
 
             case sf::Event::MouseMoved:
-                posmouse = sf::Mouse::getPosition(window);
-                izEye.setPosition(posmouse.x - 200, posmouse.y - 75);
-                derEye.setPosition(posmouse.x +100, posmouse.y - 75);
-                bocaElMasGrande.setPosition(posmouse.x + 20, posmouse.y +130);
                 
-                borde1.setPosition(posmouse.x -300, posmouse.y -270);
-                borde2.setPosition(posmouse.x -290, posmouse.y -260);
+                posmouse = sf::Mouse::getPosition(window);
+                limo.moverSlime(window,posmouse);
 
+                break;
+
+            case sf::Event::MouseLeft:
+                limo.pestañeoSlime();
                 break;
 
             default:
                 break;
             }                
         }
-
         window.clear();
         window.draw(fondo);
+        limo.dibujarSlime(window);
+        
 
-        window.draw(borde1);
-        window.draw(borde2);
-
-        window.draw(izEye);
-        window.draw(derEye);
-        window.draw(bocaElMasGrande);
         window.display();
     }
 
