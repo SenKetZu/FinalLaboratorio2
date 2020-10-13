@@ -6,15 +6,15 @@ class Carta{
 private:
 	sf::Sprite _carta;
 	sf::Texture _textura;
-	//size
-	float _x = 100.f, _y = 100.f;
+	sf::Vector2f centroPantalla;
+
 
 public:
 	Carta(sf::RenderWindow&pantalla);
 	void setSize(float x, float y);
-	
+	void centrar(sf::RenderWindow&pantalla);
 	void mostrar(sf::RenderWindow&pantalla);
-
+	sf::Sprite &devolverSprite();
 
 
 
