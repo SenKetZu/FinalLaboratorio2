@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Animacion">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQgAAAAJAAAAAAgAAABAAAAAAAAAgAAACAgAAAAAI=</HashCode>
+      <FileName>Animacion.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Master">
+    <Position X="3.5" Y="2.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Master.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Notas">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAABACAAABAAAAAAEAAAIAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Notas.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Carta" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAFAAAAgEAAgABAAAAAIAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Carta.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

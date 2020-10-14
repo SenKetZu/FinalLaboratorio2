@@ -1,22 +1,25 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include "Notas.h"
 
 class Animacion{
 private:
-	float _delta;
-	float _rotacion;
+	float _delta=0;
+	int _colorAct;
+	Notas *_vecNotas;
 	sf::Sprite &_objeto;
 	sf::Texture _textura;
 	sf::Vector2f _posicion;
 	sf::Vector2i _posMouse;
 	
 public:
-	Animacion(sf::Sprite&objeto);
-	void inclinar(float rotacion);
+	
+	Animacion(Notas notas[4]);
+
 	void empezarCaer();
 	void centrar(sf::RenderWindow &pantalla);
 	void seguirMouse(sf::RenderWindow& pantalla);
-
+	void cambiarNota();
+	sf::Sprite &devolver();
 };
 

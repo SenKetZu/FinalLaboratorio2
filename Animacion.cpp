@@ -2,28 +2,14 @@
 
 
 
-Animacion::Animacion(sf::Sprite &objeto):_objeto(objeto){
-	_delta = 0;
-	_rotacion= _objeto.getRotation();
-	_textura = *_objeto.getTexture();
-
-
-	sf::Vector2u b = _textura.getSize();
-	_objeto.setOrigin(b.x / 2, b.y / 2);
-
-}
-
-
-void Animacion::inclinar(float rotacion) {
+Animacion::Animacion(Notas notas[4]):_objeto(notas[0].devolver()){
 	
-	sf::Vector2u tamaño = _textura.getSize();
+	_colorAct = 0;
 
-	//_objeto.move(sf::Vector2f(4*rotacion,0));
-	_rotacion += rotacion;
-	_objeto.setRotation(_rotacion);
+	_vecNotas = notas;
 
+	
 }
-
 
 void Animacion::empezarCaer() {
 
@@ -34,7 +20,7 @@ void Animacion::empezarCaer() {
 
 
 
-	_objeto.setPosition();
+	//_objeto.setPosition();
 
 
 
@@ -48,12 +34,34 @@ void Animacion::empezarCaer() {
 }
 
 void Animacion::seguirMouse(sf::RenderWindow& pantalla) {
+
 	_posMouse=sf::Mouse::getPosition(pantalla);
 
 	_objeto.setPosition(sf::Vector2f(_posMouse));
 
 
 }
+
+void Animacion::cambiarNota() {
+	if (_colorAct == 3) {
+		_colorAct = 0;
+	}
+	else {
+		_colorAct++;
+	}
+
+
+
+	_objeto = _vecNotas[_colorAct].devolver();
+	_objeto.setPosition(sf::Vector2f(_posMouse));
+}
+
+sf::Sprite& Animacion::devolver()
+{
+	return _objeto;
+}
+
+
 
 void Animacion::centrar(sf::RenderWindow& pantalla) {
 
