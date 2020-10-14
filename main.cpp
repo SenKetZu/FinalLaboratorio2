@@ -11,16 +11,17 @@
 int main(){
     
 
-    sf::RenderWindow window(sf::VideoMode(1200,800), "v0.00-1!",sf::Style::Close| sf::Style::Titlebar);
+    sf::RenderWindow Ventana(sf::VideoMode(1200,800), "v0.00-1!",sf::Style::Close| sf::Style::Titlebar);
     sf::RectangleShape fondo(sf::Vector2f(1200, 800));
     fondo.setFillColor(sf::Color::Color(150,150,150));
-    
+
+    sf::Vector2f tamNotas = sf::Vector2f(0.55, 0.55);
 
 
 
-    Notas nota("NotaAzul.png");
+    Notas NotaAzul("NotaAzul.png",tamNotas);
 
-    Animacion notaRoja(nota.devolver());
+    Animacion Animacion_Azul(NotaAzul.devolver());
    
 
 
@@ -28,68 +29,73 @@ int main(){
 
 
 
-    window.setFramerateLimit(60);
+    Ventana.setFramerateLimit(60);
     //window.setMouseCursorVisible(false);
     //sf::sleep(sf::seconds(1));
-    bool incIz = false, incDer = false;
-    while (window.isOpen()){
+   
+    bool left_click = false;
 
+    //este ciclo se repite por cada frame
+    while (Ventana.isOpen()){
+ 
         sf::Event event;
         
-        while (window.pollEvent(event)){
+
+
+
+
+        while (Ventana.pollEvent(event)){
             //------------------------------------Banderas-----------------------------------------------------
             sf::Vector2i posmouse;
-            posmouse = sf::Mouse::getPosition(window);
+            posmouse = sf::Mouse::getPosition(Ventana);
             switch (event.type){
 
-            case sf::Event::Closed:window.close(); break;
+                case sf::Event::Closed: Ventana.close(); break;
 
-            case sf::Event::MouseButtonReleased:
-                if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-                    incIz = false;
+                case sf::Event::MouseButtonReleased: {
+                    if (!sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                        left_click = false;
 
+                    }
+                    if (!sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+
+                    }
+                    break;
                 }
-                if (!sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-                    incDer = false;
+
+                case sf::Event::MouseButtonPressed: {
+                    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                        left_click = true;
+
+                    }
+                    else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+
+
+
+                    }
+                    break;
                 }
-
-
-                break;
-
-            case sf::Event::MouseButtonPressed:
-                if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-                    
-                    incIz = true;
-                }
-                else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-                    incDer = true;
-                    
-
-                }
-                
-                break;
-
   
-            default:
-                break;
-            }            
+                default:
+                    break;
+                }            
 
         }
+
+
+
+
         //-----------------------------Dibujado------------------
-        if (incIz) {
-   
+        if (left_click) {
+            Animacion_Azul.seguirMouse(Ventana);
         }
-        if (incDer) {
-   
 
-        }
-        window.draw(fondo);
- 
-        //limo.dibujar(window);
+
+        Ventana.draw(fondo);
         
-        window.draw( nota.devolver());
+        Ventana.draw(NotaAzul.devolver());
 
-        window.display();
+        Ventana.display();
         
     }
 

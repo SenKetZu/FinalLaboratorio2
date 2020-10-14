@@ -3,7 +3,7 @@
 
 
 
-Notas::Notas(const char *nombre_imagen) {
+Notas::Notas(const char *nombre_imagen,sf::Vector2f escala) {
 	char Dir[50] = "Sources\\";
 	if (!_textura.loadFromFile(strcat(Dir,nombre_imagen))) {
 		std::cout << "fail";
@@ -11,7 +11,7 @@ Notas::Notas(const char *nombre_imagen) {
 	//_textura.setSmooth(true);
 	_nota.setTexture(_textura);
 
-	
+	_nota.setScale(escala);
 
 
 

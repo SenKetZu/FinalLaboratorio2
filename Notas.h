@@ -14,7 +14,7 @@ private:
 
 public:
 
-	Notas(const char* nombre_imagen );
+	Notas(const char* nombre_imagen, sf::Vector2f escala);
 	void dimensionar(float x, float y);
 	sf::Sprite& devolver();
 

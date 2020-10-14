@@ -6,6 +6,8 @@ Animacion::Animacion(sf::Sprite &objeto):_objeto(objeto){
 	_delta = 0;
 	_rotacion= _objeto.getRotation();
 	_textura = *_objeto.getTexture();
+
+
 	sf::Vector2u b = _textura.getSize();
 	_objeto.setOrigin(b.x / 2, b.y / 2);
 
@@ -23,7 +25,21 @@ void Animacion::inclinar(float rotacion) {
 }
 
 
-void Animacion::caida() {
+void Animacion::empezarCaer() {
+
+
+
+
+
+
+
+
+	_objeto.setPosition();
+
+
+
+
+
 
 
 
@@ -31,7 +47,13 @@ void Animacion::caida() {
 
 }
 
+void Animacion::seguirMouse(sf::RenderWindow& pantalla) {
+	_posMouse=sf::Mouse::getPosition(pantalla);
 
+	_objeto.setPosition(sf::Vector2f(_posMouse));
+
+
+}
 
 void Animacion::centrar(sf::RenderWindow& pantalla) {
 
