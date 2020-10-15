@@ -10,15 +10,14 @@ Notas::Notas(const char *nombre_imagen,sf::Vector2f escala) {
 	if (!_textura.loadFromFile(strcat(Dir,nombre_imagen))) {
 		std::cout << "fail";
 	}
-	//_textura.setSmooth(true);
+
 	_nota.setTexture(_textura);
 
 	_nota.setScale(escala);
 
 
-	sf::Vector2u b = _textura.getSize();
-	sf::Vector2f a = escala;
-	_centroObjeto = sf::Vector2f((b.x * a.x), (b.y * a.y));
+	_centroObjeto = sf::Vector2f(_nota.getGlobalBounds().width / 2, _nota.getGlobalBounds().height / 2);
+
 	_nota.setOrigin(_centroObjeto);
 
 	_textura.setSmooth(true);
@@ -27,6 +26,18 @@ Notas::Notas(const char *nombre_imagen,sf::Vector2f escala) {
 sf::Sprite& Notas::devolver() {
 
 	return _nota;
+}
+
+void Notas::mover(float x, float y){
+
+	_nota.setPosition(x, y);
+}
+
+void Notas::presionar(){
+	
+
+
+
 }
 
 void Notas::dimensionar(float x, float y) {

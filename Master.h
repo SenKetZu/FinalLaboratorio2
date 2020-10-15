@@ -7,7 +7,9 @@ private:
 
 public:
 
-
+	Master();
+	void init();
+	void mandarNota();
 
 
 

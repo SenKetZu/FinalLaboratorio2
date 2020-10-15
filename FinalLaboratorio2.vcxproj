@@ -146,16 +146,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animacion.cpp" />
+    <ClCompile Include="Cancion.cpp" />
     <ClCompile Include="Carta.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Master.cpp" />
     <ClCompile Include="Notas.cpp" />
+    <ClCompile Include="Render.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animacion.h" />
+    <ClInclude Include="Cancion.h" />
     <ClInclude Include="Carta.h" />
     <ClInclude Include="Master.h" />
     <ClInclude Include="Notas.h" />
+    <ClInclude Include="Render.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -12,6 +12,8 @@ public:
 	Notas(const char* nombre_imagen, sf::Vector2f escala);
 	void dimensionar(float x, float y);
 	sf::Sprite& devolver();
+	void mover(float x, float y);
+	void presionar();
 
 
 };

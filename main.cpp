@@ -2,8 +2,7 @@
 #include <iostream>
 #include "Notas.h"
 #include "Animacion.h"
-
-
+#include "Cancion.h"
 
 
 
@@ -18,7 +17,9 @@ int main(){
     sf::Texture textMangoBlur;
     sf::Sprite mango;
     sf::Sprite mangoBlur;
-
+    Cancion a;
+    a.SetCancion("kubaLoveNormal.osu");
+    a.leer();
     textFondo.loadFromFile("Sources\\Fondo-1.jpg");
 
     fondo.setTexture(&textFondo);
