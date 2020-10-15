@@ -37,12 +37,6 @@ int Cancion::getNotas(){
 
 	}
 
-	
-
-
-	
-
-
-
 	fclose(P);
+	return 0;
 }

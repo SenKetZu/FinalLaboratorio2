@@ -19,7 +19,7 @@ int main(){
     sf::Sprite mangoBlur;
     Cancion a;
     a.SetCancion("kubaLoveNormal.osu");
-    a.leer();
+    
     textFondo.loadFromFile("Sources\\Fondo-1.jpg");
 
     fondo.setTexture(&textFondo);

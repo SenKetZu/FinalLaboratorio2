@@ -2,7 +2,7 @@
 
 
 
-Animacion::Animacion(Notas notas[4]):_objeto(notas[0].devolver()){
+Animacion::Animacion(Notas notas[4]):_objeto(notas[0].getSprite()){
 	
 	_colorAct = 0;
 
@@ -59,7 +59,7 @@ void Animacion::cambiarNota() {
 
 
 
-	_objeto = _vecNotas[_colorAct].devolver();
+	_objeto = _vecNotas[_colorAct].getSprite();
 	_objeto.setPosition(sf::Vector2f(_posMouse));
 }
 

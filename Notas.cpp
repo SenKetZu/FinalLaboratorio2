@@ -23,7 +23,7 @@ Notas::Notas(const char *nombre_imagen,sf::Vector2f escala) {
 	_textura.setSmooth(true);
 }
 
-sf::Sprite& Notas::devolver() {
+sf::Sprite& Notas::getSprite() {
 
 	return _nota;
 }
@@ -40,7 +40,7 @@ void Notas::presionar(){
 
 }
 
-void Notas::dimensionar(float x, float y) {
+void Notas::setScale(float x, float y) {
 
 	_nota.setScale(x, y);
 

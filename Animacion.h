@@ -8,6 +8,7 @@ private:
 	float _delta=0;
 	int _colorAct;
 	Notas *_vecNotas;
+
 	sf::Sprite &_objeto;
 	sf::Texture _textura;
 	sf::Vector2f _posicion;
@@ -17,7 +18,7 @@ public:
 	
 	Animacion(Notas notas[4]);
 	Animacion(sf::Sprite &objeto);
-
+	void presionar();
 	void empezarCaer();
 	void centrar(sf::RenderWindow &pantalla);
 	void seguirMouse(sf::RenderWindow& pantalla);
