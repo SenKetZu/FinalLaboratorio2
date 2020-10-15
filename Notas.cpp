@@ -2,9 +2,6 @@
 #include <iostream>
 
 
-
-
-
 Notas::Notas(const char *nombre_imagen,sf::Vector2f escala) {
 	
 	
@@ -24,15 +21,13 @@ Notas::Notas(const char *nombre_imagen,sf::Vector2f escala) {
 	_centroObjeto = sf::Vector2f((b.x * a.x), (b.y * a.y));
 	_nota.setOrigin(_centroObjeto);
 
-
+	_textura.setSmooth(true);
 }
 
 sf::Sprite& Notas::devolver() {
 
 	return _nota;
 }
-
-
 
 void Notas::dimensionar(float x, float y) {
 

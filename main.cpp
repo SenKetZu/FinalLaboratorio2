@@ -15,13 +15,29 @@ int main(){
     sf::RectangleShape fondo(sf::Vector2f(1200, 800));
     sf::Texture textFondo;
     sf::Texture textMango;
+    sf::Texture textMangoBlur;
     sf::Sprite mango;
+    sf::Sprite mangoBlur;
 
     textFondo.loadFromFile("Sources\\Fondo-1.jpg");
+
     fondo.setTexture(&textFondo);
-    textMango.loadFromFile("Sources\\todas_la_notas.png");
+
+    textMango.loadFromFile("Sources\\todas_la_notas-centrada.png");
+
+    textMango.setSmooth(true);
+
     mango.setTexture(textMango);
-    mango.setScale(0.7, 0.7);
+
+    textMangoBlur.loadFromFile("Sources\\fondo_mango-recortado.png");
+
+    mangoBlur.setTexture(textMangoBlur);
+
+    mangoBlur.setScale(0.8,0.8);
+
+    mango.setScale(.75, .75);
+    //mangoBlur.setScale(1.5,1.5);
+
     fondo.setFillColor(sf::Color::Color(150,150,150));
 
     sf::Vector2f tamNotas = sf::Vector2f(0.3, 0.3);
@@ -37,9 +53,12 @@ int main(){
     Notas notas[4] = { NotaVerde ,NotaRoja ,NotaNaranja ,NotaAzul };
 
     Animacion animarNotas(notas);
-   
+    Animacion animarMangoBlur(mangoBlur);
+    Animacion animarMango(mango);
+    
 
-
+    animarMango.centrar(Ventana);
+    animarMangoBlur.centrar(Ventana);
     //notaRoja.centrar(window);
 
 
@@ -114,6 +133,8 @@ int main(){
         
 
         Ventana.draw(fondo);
+
+        Ventana.draw(mangoBlur);
 
         Ventana.draw(mango);
 

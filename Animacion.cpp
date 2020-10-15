@@ -11,6 +11,13 @@ Animacion::Animacion(Notas notas[4]):_objeto(notas[0].devolver()){
 	
 }
 
+Animacion::Animacion(sf::Sprite &objeto) :_objeto(objeto) {
+
+	_textura = *_objeto.getTexture();
+
+
+}
+
 void Animacion::empezarCaer() {
 
 
@@ -61,12 +68,14 @@ sf::Sprite& Animacion::devolver()
 	return _objeto;
 }
 
-
-
 void Animacion::centrar(sf::RenderWindow& pantalla) {
-
-	sf::Vector2u b =pantalla.getSize();
-	_objeto.setPosition(b.x/2, b.y/2);
 	
+	sf::Vector2f centroImagen = sf::Vector2f(_objeto.getGlobalBounds().width / 2, _objeto.getGlobalBounds().height / 2);
+	
+	_objeto.setOrigin(centroImagen);
+
+	_objeto.setPosition(pantalla.getSize().x/2, pantalla.getSize().y/2.7);
 
 }
+
+

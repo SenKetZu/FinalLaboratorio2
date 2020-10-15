@@ -4,6 +4,7 @@
 
 class Animacion{
 private:
+
 	float _delta=0;
 	int _colorAct;
 	Notas *_vecNotas;
@@ -15,6 +16,7 @@ private:
 public:
 	
 	Animacion(Notas notas[4]);
+	Animacion(sf::Sprite &objeto);
 
 	void empezarCaer();
 	void centrar(sf::RenderWindow &pantalla);
