@@ -25,18 +25,36 @@ std::vector<_puntosNotas> Cancion::getNotas(){
 	using namespace std;
 	while (fgets(buffer, 200, _P)!=NULL) {
 
+		
+
 		if (!strcmp(buffer,"[HitObjects]\n")) {
 			hitpoins = true;
 			continue;
 		}
+		
 		if (hitpoins) {
 			
+			aux = strtok(buffer, ",");
+
+			for (int i = 0; i < 3;++i) {
+				if (i==0) {
+
+					Nota._linea = atoi(aux) * 4 / 512;
+
+				}
+				if (i==2) {
+					Nota._momento = atoi(aux);
+
+				}
+				
+				aux = strtok(NULL, ",");
+
+			}
+			matrizNotas.push_back(Nota);
+		}
 		
 
-		}
-
 	}
-	
 
 	fclose(_P);
 	return matrizNotas;

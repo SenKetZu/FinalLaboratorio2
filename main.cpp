@@ -128,7 +128,7 @@ int main(){
         }
         
         if (rigth_click) {
-            sf::sleep(sf::milliseconds(500));
+            sf::sleep(sf::milliseconds(50));
             animarNotas.cambiarNota();
             
         }
