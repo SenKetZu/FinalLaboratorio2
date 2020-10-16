@@ -8,9 +8,9 @@
 
 
 int main(){
-    srand(time(NULL));
 
-    sf::RenderWindow Ventana(sf::VideoMode(1200,800), "v0.00-1!",sf::Style::Close| sf::Style::Titlebar);
+
+    sf::RenderWindow Ventana(sf::VideoMode(1200,800), "v0.00-4!",sf::Style::Close| sf::Style::Titlebar);
     sf::RectangleShape fondo(sf::Vector2f(1200, 800));
     sf::Texture textFondo;
     sf::Texture textMango;
@@ -19,6 +19,8 @@ int main(){
     sf::Sprite mangoBlur;
     Cancion a;
     a.SetCancion("kubaLoveNormal.osu");
+
+    a.getNotas();
     
     textFondo.loadFromFile("Sources\\Fondo-1.jpg");
 
