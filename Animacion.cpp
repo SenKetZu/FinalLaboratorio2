@@ -1,12 +1,13 @@
 #include "Animacion.h"
+#include <iostream>
 
 
-
-Animacion::Animacion(Notas notas[4]):_objeto(notas[0].getSprite()){
+Animacion::Animacion(Notas notas[]):_objeto(notas[0].getSprite()){
 	
 	_colorAct = 0;
 
 	_vecNotas = notas;
+
 
 	
 }
@@ -18,27 +19,7 @@ Animacion::Animacion(sf::Sprite &objeto) :_objeto(objeto) {
 
 }
 
-void Animacion::empezarCaer() {
 
-
-
-
-
-
-
-
-	//_objeto.setPosition();
-
-
-
-
-
-
-
-
-
-
-}
 
 void Animacion::seguirMouse(sf::RenderWindow& pantalla) {
 

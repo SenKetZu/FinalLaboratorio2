@@ -1,42 +1,43 @@
 #include "Cancion.h"
-#include <vector>
 
-Cancion::Cancion(){
 
-}
 
 void Cancion::SetCancion(const char* cancionName){
 	char Dir[50] = "Sources\\Songs\\";
-	P = fopen(strcat(Dir,cancionName), "r");
+	_P = fopen(strcat(Dir,cancionName), "r");
 
-	if (P == NULL) { std::cout << "failLoadFile"; }
+	if (_P == NULL) { std::cout << "failLoadFile"; }
 
 
 }
 
-int Cancion::getNotas(){
-	std::vector<std::vector<int>> matrizNotas;
+std::vector<_puntosNotas> Cancion::getNotas(){
+
+
+	std::vector<_puntosNotas> matrizNotas;
 
 	char buffer[200];
 
 	bool hitpoins = false;
 
-	while (fgets(buffer, 200, P)!=NULL) {
+	_puntosNotas Nota;
+	char* aux;
 
+	while (fgets(buffer, 200, _P)!=NULL) {
 
 		if (!strcmp(buffer,"[HitObjects]\n")) {
 			hitpoins = true;
+			continue;
 		}
 		if (hitpoins) {
 			
-			strtok(buffer,",");
+		
 
 		}
 
-
-
 	}
+	
 
-	fclose(P);
-	return 0;
+	fclose(_P);
+	return matrizNotas;
 }

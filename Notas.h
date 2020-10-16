@@ -1,11 +1,19 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+
+
+
 class Notas{
 private:
+
 	sf::Sprite _nota;
 	sf::Texture _textura;
-	float altura=0;
+	//float altura=0;
 	sf::Vector2f dimensiones, _centroObjeto;
+
+
+	sf::Vector2f prueba = sf::Vector2f(50, 50);
+
 
 public:
 	

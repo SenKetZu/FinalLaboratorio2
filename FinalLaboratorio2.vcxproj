@@ -151,6 +151,7 @@
     <ClCompile Include="Master.cpp" />
     <ClCompile Include="Notas.cpp" />
     <ClCompile Include="Render.cpp" />
+    <ClCompile Include="Tiempo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animacion.h" />
@@ -158,6 +159,8 @@
     <ClInclude Include="Master.h" />
     <ClInclude Include="Notas.h" />
     <ClInclude Include="Render.h" />
+    <ClInclude Include="Structs.h" />
+    <ClInclude Include="Tiempo.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
