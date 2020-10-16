@@ -22,7 +22,7 @@ std::vector<_puntosNotas> Cancion::getNotas(){
 
 	_puntosNotas Nota;
 	char* aux;
-
+	using namespace std;
 	while (fgets(buffer, 200, _P)!=NULL) {
 
 		if (!strcmp(buffer,"[HitObjects]\n")) {

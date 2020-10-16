@@ -6,8 +6,6 @@ class Tiempo{
 private:
 
 
-	int a;
-	int b;
 
 
 
@@ -17,9 +15,6 @@ private:
 
 public:
 
-
-	void cargarA(int ingreso);
-	void mostrarA();
 
 
 };
