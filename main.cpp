@@ -8,7 +8,7 @@
 
 
 int main(){
-    srand(time(NULL));
+   
 
     sf::RenderWindow Ventana(sf::VideoMode(1200,800), "v0.00-1!",sf::Style::Close| sf::Style::Titlebar);
     sf::RectangleShape fondo(sf::Vector2f(1200, 800));
