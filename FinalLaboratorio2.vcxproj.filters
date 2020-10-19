@@ -18,6 +18,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Carta.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
     <ClCompile Include="Animacion.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -44,6 +47,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Carta.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
     <ClInclude Include="Animacion.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
