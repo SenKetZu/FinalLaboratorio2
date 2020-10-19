@@ -4,15 +4,24 @@
 #include <vector>
 
 class Cancion{
+
 private:
-	FILE* P;
+
+	FILE* _P;
+	int _nextNota = 0, _notasAcertadas, _notasPerdidas;
+	std::vector<Hitpoint> _cancion;
 
 public:
 
-	
 	void SetCancion(const char* cancionPath);
-	std::vector<_puntosNotas> getNotas();
+	Hitpoint getNota();
+	int getSize();
+	int getNotasApretadas();
+	int getNext();
 
+private:
+
+	void getCancion();
 
 };
 

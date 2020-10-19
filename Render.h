@@ -17,5 +17,6 @@ public:
 	Render();
 	void dibujar(sf::Sprite obj);
 	void dibujar(sf::RectangleShape obj);
+	void actualizarNotas();
 };
 
