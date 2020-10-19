@@ -22,7 +22,6 @@ int main(){
 
     a.getNotas();
     
-
     textFondo.loadFromFile("Sources\\Fondo-1.jpg");
 
     fondo.setTexture(&textFondo);
