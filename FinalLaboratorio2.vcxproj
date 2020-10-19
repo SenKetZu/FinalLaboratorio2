@@ -162,6 +162,7 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Notas.h" />
     <ClInclude Include="Render.h" />
+    <ClInclude Include="Structs.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

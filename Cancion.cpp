@@ -1,9 +1,7 @@
 #include "Cancion.h"
-#include <vector>
 
-Cancion::Cancion(){
 
-}
+
 
 void Cancion::SetCancion(const char* cancionName){
 	char Dir[50] = "Sources\\Songs\\";
@@ -14,35 +12,36 @@ void Cancion::SetCancion(const char* cancionName){
 
 }
 
-int Cancion::getNotas(){
-	std::vector<std::vector<int>> matrizNotas;
-
+std::vector<_puntosNotas> Cancion::getNotas(){
+	std::vector<_puntosNotas> matrizNotas;
+	_puntosNotas nota;
 	char buffer[200];
-
+	char* aux;
 	bool hitpoins = false;
 
 	while (fgets(buffer, 200, P)!=NULL) {
 
-
-		if (!strcmp(buffer,"[HitObjects]\n")) {
+		if (!strcmp(buffer, "[HitObjects]\n")) {
 			hitpoins = true;
+
+			continue;
 		}
+		
 		if (hitpoins) {
+			aux=strtok(buffer, ",");
+
+			nota._pos = (atoi(aux) * 4) / 512;
 			
-			strtok(buffer,",");
+				
+			strtok(NULL, ","); 
+			aux=strtok(NULL, ",");
+		
+				
+			nota._time = atoi(aux);
 
+			matrizNotas.push_back(nota);
 		}
-
-
-
 	}
-
-	
-
-
-	
-
-
-
 	fclose(P);
+	return matrizNotas;
 }
