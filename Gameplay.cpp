@@ -7,7 +7,7 @@ void Gameplay::setNotas(std::vector<_puntosNotas> notas){
 }
 
 void Gameplay::initSong(){
-
+    //ciclo donde se ejecutara la cancion
     
 
 

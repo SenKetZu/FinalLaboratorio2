@@ -1,16 +1,12 @@
 #include "Render.h"
 
 
+Render::Render():_Ventana(sf::VideoMode(800,600),"SANTI LA PUTA QUE TE PARIO",sf::Style::Default) {/*equisde*/}
 
-
-Render::Render():_Ventana(sf::VideoMode(1200, 800), "v0.00-5!", sf::Style::Close | sf::Style::Titlebar) {
+void Render::dibujar(sf::Sprite obj) {
+	_Ventana.draw(obj);
 }
 
-
-void Render::dibujar(sf::Sprite dibujo){
-    _Ventana.draw(dibujo);
-}
-
-void Render::Update(){
-    _Ventana.display();
+void Render::dibujar(sf::RectangleShape obj) {
+	_Ventana.draw(obj);
 }
