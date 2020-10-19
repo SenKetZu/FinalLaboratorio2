@@ -153,7 +153,6 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Notas.cpp" />
     <ClCompile Include="Render.cpp" />
-    <ClCompile Include="Tiempo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animacion.h" />
@@ -163,8 +162,6 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Notas.h" />
     <ClInclude Include="Render.h" />
-    <ClInclude Include="Structs.h" />
-    <ClInclude Include="Tiempo.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -1,17 +1,25 @@
 #pragma once
 #include <iostream>
-#include <vector>
-#include "Structs.h"
-
 
 class Cancion{
 private:
-	FILE* _P;
+	FILE* P;
+
+
+
+
+
+
+
+
+
+
 
 public:
 
+	Cancion();
 	void SetCancion(const char* cancionPath);
-	std::vector<_puntosNotas> getNotas();
+	int getNotas();
 
 
 };
