@@ -147,8 +147,10 @@
   <ItemGroup>
     <ClCompile Include="Animacion.cpp" />
     <ClCompile Include="Cancion.cpp" />
+    <ClCompile Include="Joystick.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Master.cpp" />
+    <ClCompile Include="Gameplay.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Notas.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="Tiempo.cpp" />
@@ -156,7 +158,9 @@
   <ItemGroup>
     <ClInclude Include="Animacion.h" />
     <ClInclude Include="Cancion.h" />
-    <ClInclude Include="Master.h" />
+    <ClInclude Include="Joystick.h" />
+    <ClInclude Include="Gameplay.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Notas.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="Structs.h" />
