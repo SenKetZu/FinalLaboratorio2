@@ -2,38 +2,77 @@
 #include <iostream>
 
 
-Notas::Notas(const char *nombre_imagen,sf::Vector2f escala) {
+
+
+void Notas::press()
+{
+	pressed = true;
+}
+
+int Notas::getChanel()
+{
+	return chanel;
+}
+
+void Notas::setAltura(float altura)
+{
+	_altura = altura;
+}
+
+void Notas::addAltura()
+{
+	_altura+=50.0f;
+}
+
+float Notas::getAltura()
+{
+	return _altura;
+}
+
+Notas::Notas(int color,sf::Vector2f escala) {
 	
-	
-	
-	char Dir[50] = "Sources\\";
-	if (!_textura.loadFromFile(strcat(Dir,nombre_imagen))) {
-		std::cout << "fail";
+	chanel = color;
+	switch (color){
+		case 0:
+			if (!_textura.loadFromFile("Sources\\NotaAzul.png") ) {
+				std::cout << "fail";
+			}
+			break;
+		case 1:
+			if (!_textura.loadFromFile("Sources\\NotaVerde.png")) {
+				std::cout << "fail";
+			}
+			break;
+		case 2:
+			if (!_textura.loadFromFile("Sources\\NotaRoja.png")) {
+				std::cout << "fail";
+			}
+			break;
+		case 3:
+			if (!_textura.loadFromFile("Sources\\NotaNaranja.png")) {
+				std::cout << "fail";
+			}
+			break;
+
+	default:
+		break;
 	}
 
 	_nota.setTexture(_textura);
 
 	_nota.setScale(escala);
 
-
-	_centroObjeto = sf::Vector2f(_nota.getGlobalBounds().width / 2, _nota.getGlobalBounds().height / 2);
-
-	_nota.setOrigin(_centroObjeto);
+	_nota.setOrigin(sf::Vector2f(_nota.getGlobalBounds().width / 2, _nota.getGlobalBounds().height / 2));
 
 	_textura.setSmooth(true);
 }
 
-sf::Sprite& Notas::devolver() {
-
+sf::Sprite& Notas::devolver()
+{
 	return _nota;
 }
 
 
 
-void Notas::presionar(){
-	
 
-
-
-}
 

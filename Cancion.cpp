@@ -1,8 +1,53 @@
 #include "Cancion.h"
 
 
+//private
+void Cancion::getCancion() {
+
+	Hitpoint nota;
+	char buffer[200];
+	char* aux;
+	bool hitpoins = false;
+
+	while (fgets(buffer, 200, _P) != NULL) {
+
+		if (!strcmp(buffer, "[HitObjects]\n")) {
+			hitpoins = true;
+
+			continue;
+		}
+
+		if (hitpoins) {
+
+			aux = strtok(buffer, ",");
+
+			nota._pos = (atoi(aux) * 4) / 512;
+
+			strtok(NULL, ",");
+			aux = strtok(NULL, ",");
 
 
+			nota._time = atoi(aux)/10*-1;
+
+			_cancionRaw.push_back(nota);
+		}
+	}
+	fclose(_P);
+}
+
+void Cancion::fillCancion()
+{
+	
+	for (Hitpoint nota:_cancionRaw) {
+
+		Notas newNota(nota._pos, sf::Vector2f(0.5, 0.5));
+		newNota.setAltura(nota._time);
+		_cancion.push_back(newNota);
+
+	}
+}
+
+//public
 void Cancion::SetCancion(const char* cancionName){
 	char Dir[50] = "Sources\\Songs\\";
 	_P = fopen(strcat(Dir,cancionName), "r");
@@ -10,51 +55,28 @@ void Cancion::SetCancion(const char* cancionName){
 	if (_P == NULL) { std::cout << "failLoadFile"; }
 
 	getCancion();
+	fillCancion();
 }
 
-void Cancion::getCancion(){
-	
-	Hitpoint nota;
-	char buffer[200];
-	char* aux;
-	bool hitpoins = false;
 
-	while (fgets(buffer, 200, _P)!=NULL) {
 
-		if (!strcmp(buffer, "[HitObjects]\n")) {
-			hitpoins = true;
-
-			continue;
-		}
-		
-		if (hitpoins) {
-			aux=strtok(buffer, ",");
-
-			nota._pos = (atoi(aux) * 4) / 512;
-			
-				
-			strtok(NULL, ","); 
-			aux=strtok(NULL, ",");
-		
-				
-			nota._time = atoi(aux);
-
-			_cancion.push_back(nota);
-		}
+Hitpoint Cancion::getNota(bool siguiente)
+{
+	Hitpoint devolver = _cancionRaw[_notaActual];
+	if (siguiente) {
+		++_notaActual;
 	}
-	fclose(_P);
-}
-
-Hitpoint Cancion::getNota(){
-
-	Hitpoint devolver= _cancion[_nextNota];
-	++_nextNota;
-
 	return devolver;
 }
 
-int Cancion::getSize(){
-	return _cancion.size();
+std::vector<Notas>& Cancion::cancionFull()
+{
+	return _cancion;
+}
+
+int Cancion::getSize()
+{
+	return _cancionRaw.size();
 }
 
 int Cancion::getNotasApretadas()
@@ -64,7 +86,11 @@ int Cancion::getNotasApretadas()
 
 int Cancion::getNext()
 {
-	return _nextNota;
+	return _notaActual;
+}
+
+void Cancion::presionarNota(){
+	_cancion[_notaActual].press();
 }
 
 

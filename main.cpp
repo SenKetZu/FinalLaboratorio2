@@ -1,23 +1,23 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Gameplay.h"
+/*
+
 #include "Notas.h"
 #include "Animacion.h"
 #include "Cancion.h"
 #include "Render.h"
-#include "Gameplay.h"
+
+
+*/
 
 
 int main(){
-  
-    Render pantalla;
-    
-    Gameplay controlador;
-
-
-
+   
+    Gameplay main;
+    main.initSong();
 
     
-
 
 
 

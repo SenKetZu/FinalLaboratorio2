@@ -11,30 +11,36 @@ void Gameplay::initSong(){
     
 
 
-    sf::Clock tiempo;
-
-    while (_cancion.getSize()>_cancion.getNotasApretadas()){
-        sf::Int32 transcurrido = tiempo.getElapsedTime().asMilliseconds();
-
+    
+    sf::Clock tiempoTranscurrido;
+    while (true){
 
 
+        
+        
+        
+        
+       
 
+        
 
-
-        if (transcurrido < _cancion.getNota()._time) {
-            
-            mostrar.actualizarNotas(notasEnPantalla);
-
-
-        }
-
+       
+        
 
 
 
+        
 
 
 
 
+        //mostrar.clear();
+        mostrar.fondo();
+        mostrar.actualizarNotas(_cancion.cancionFull());
+        
+        
+        
+        mostrar.devolver().display();
     }
 
 
@@ -43,3 +49,5 @@ void Gameplay::initSong(){
 
 
 }
+
+

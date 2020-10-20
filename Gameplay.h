@@ -15,10 +15,11 @@ private:
 
 
 
+
 public:
 	
 	 void initSong();
-
+	 void actualizarNotas();
 
 };
 
