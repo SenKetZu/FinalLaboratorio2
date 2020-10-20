@@ -12,10 +12,11 @@ private:
 
 
 
+
 public:
 	 void setNotas(std::vector<_puntosNotas> notas);
 	 void initSong();
-
+	 void actualizarNotas();
 
 };
 

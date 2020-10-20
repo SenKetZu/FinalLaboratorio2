@@ -2,19 +2,22 @@
 #include <SFML/Graphics.hpp>
 class Notas{
 private:
+
 	sf::Sprite _nota;
 	sf::Texture _textura;
-	float altura=0;
-	sf::Vector2f dimensiones, _centroObjeto;
-
+	float _altura;
+	int chanel;
+	bool pressed = false;
 public:
-	
-	Notas(const char* nombre_imagen, sf::Vector2f escala);
-	void dimensionar(float x, float y);
+	void press();
+	int getChanel();
+	void setAltura(float altura);
+	void addAltura();
+	float getAltura();
+	Notas(int color, sf::Vector2f escala);	
 	sf::Sprite& devolver();
-	void mover(float x, float y);
-	void presionar();
-
 
 };
+
+
 
