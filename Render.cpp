@@ -1,11 +1,5 @@
 #include "Render.h"
 
-//private
-
-
-
-
-//public
 
 
 
@@ -61,10 +55,10 @@ void Render::actualizarNotas(std::vector<Notas>& song){
 		}
 		switch (nota.getChanel())
 		{
-		case 0:nota.devolver().setPosition(200, nota.getAltura()); nota.addAltura(); break;
-		case 1:nota.devolver().setPosition(400, nota.getAltura()); nota.addAltura(); break;
-		case 2:nota.devolver().setPosition(600, nota.getAltura()); nota.addAltura(); break;
-		case 3:nota.devolver().setPosition(800, nota.getAltura()); nota.addAltura(); break;
+		case 0:nota.devolver().setPosition(515, nota.getAltura()); nota.addAltura(); break;
+		case 1:nota.devolver().setPosition(580, nota.getAltura()); nota.addAltura(); break;
+		case 2:nota.devolver().setPosition(645, nota.getAltura()); nota.addAltura(); break;
+		case 3:nota.devolver().setPosition(707, nota.getAltura()); nota.addAltura(); break;
 
 
 		default:

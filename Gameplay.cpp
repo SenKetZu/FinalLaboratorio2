@@ -13,13 +13,16 @@ void Gameplay::initSong(){
 
     
     sf::Clock tiempoTranscurrido;
-    while (true){
+    while (mostrar.devolver().isOpen()){
 
-
+        sf::Event event;
+        mostrar.devolver().pollEvent(event);
         
         
         
-        
+        if(sf::Event::Closed){
+            mostrar.devolver().close();
+        }
        
 
         

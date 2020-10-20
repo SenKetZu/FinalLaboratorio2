@@ -14,10 +14,9 @@ private:
 	sf::RenderWindow _Ventana;
 	std::vector<Notas> _cancion;
 	bool FirstTime = true;
-private:
-	
 	
 public:
+
 	Render();
 	void fondo();
 	void dibujar(sf::Sprite obj);
@@ -25,5 +24,6 @@ public:
 	void clear();
 	sf::RenderWindow& devolver();
 	void actualizarNotas(std::vector<Notas>& song);
+
 };
 

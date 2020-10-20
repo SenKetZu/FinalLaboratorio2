@@ -21,7 +21,7 @@ void Notas::setAltura(float altura)
 
 void Notas::addAltura()
 {
-	_altura+=50.0f;
+	_altura+=10.0f;
 }
 
 float Notas::getAltura()
@@ -29,7 +29,7 @@ float Notas::getAltura()
 	return _altura;
 }
 
-Notas::Notas(int color,sf::Vector2f escala) {
+Notas::Notas(int color,sf::Vector2f escala):_altura(0) {
 	
 	chanel = color;
 	switch (color){
@@ -64,7 +64,7 @@ Notas::Notas(int color,sf::Vector2f escala) {
 
 	_nota.setOrigin(sf::Vector2f(_nota.getGlobalBounds().width / 2, _nota.getGlobalBounds().height / 2));
 
-	_textura.setSmooth(true);
+	//_textura.setSmooth(true);
 }
 
 sf::Sprite& Notas::devolver()

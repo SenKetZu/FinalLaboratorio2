@@ -27,7 +27,7 @@ void Cancion::getCancion() {
 			aux = strtok(NULL, ",");
 
 
-			nota._time = atoi(aux)/10*-1;
+			nota._time = atoi(aux)/5*-1;
 
 			_cancionRaw.push_back(nota);
 		}
@@ -40,7 +40,8 @@ void Cancion::fillCancion()
 	
 	for (Hitpoint nota:_cancionRaw) {
 
-		Notas newNota(nota._pos, sf::Vector2f(0.5, 0.5));
+		Notas newNota(nota._pos, sf::Vector2f(.2, .2));
+
 		newNota.setAltura(nota._time);
 		_cancion.push_back(newNota);
 
