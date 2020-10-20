@@ -3,10 +3,12 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "Notas.h"
+#include "Cancion.h"
+#include "Render.h"
 
 class Gameplay{
 private:
-	std::vector<_puntosNotas> _notasCancion;
+	std::vector<Hitpoint> _notasCancion;
 
 
 
@@ -15,9 +17,9 @@ private:
 
 
 public:
-	 void setNotas(std::vector<_puntosNotas> notas);
+
 	 void initSong();
-	 void actualizarNotas();
+
 
 };
 
