@@ -1,6 +1,6 @@
 #pragma once
 
-struct Hitpoint {
+struct _puntosNotas {
 	int _pos;
 	int _time;
 };

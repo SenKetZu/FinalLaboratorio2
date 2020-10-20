@@ -5,21 +5,21 @@
 
 void Cancion::SetCancion(const char* cancionName){
 	char Dir[50] = "Sources\\Songs\\";
-	_P = fopen(strcat(Dir,cancionName), "r");
+	P = fopen(strcat(Dir,cancionName), "r");
 
-	if (_P == NULL) { std::cout << "failLoadFile"; }
+	if (P == NULL) { std::cout << "failLoadFile"; }
 
-	getCancion();
+
 }
 
-void Cancion::getCancion(){
-	
-	Hitpoint nota;
+std::vector<_puntosNotas> Cancion::getNotas(){
+	std::vector<_puntosNotas> matrizNotas;
+	_puntosNotas nota;
 	char buffer[200];
 	char* aux;
 	bool hitpoins = false;
 
-	while (fgets(buffer, 200, _P)!=NULL) {
+	while (fgets(buffer, 200, P)!=NULL) {
 
 		if (!strcmp(buffer, "[HitObjects]\n")) {
 			hitpoins = true;
@@ -39,33 +39,9 @@ void Cancion::getCancion(){
 				
 			nota._time = atoi(aux);
 
-			_cancion.push_back(nota);
+			matrizNotas.push_back(nota);
 		}
 	}
-	fclose(_P);
+	fclose(P);
+	return matrizNotas;
 }
-
-Hitpoint Cancion::getNota(){
-
-	Hitpoint devolver= _cancion[_nextNota];
-	++_nextNota;
-
-	return devolver;
-}
-
-int Cancion::getSize(){
-	return _cancion.size();
-}
-
-int Cancion::getNotasApretadas()
-{
-	return _notasAcertadas+_notasPerdidas;
-}
-
-int Cancion::getNext()
-{
-	return _nextNota;
-}
-
-
-

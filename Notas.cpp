@@ -28,7 +28,10 @@ sf::Sprite& Notas::devolver() {
 	return _nota;
 }
 
+void Notas::mover(float x, float y){
 
+	_nota.setPosition(x, y);
+}
 
 void Notas::presionar(){
 	
@@ -37,3 +40,8 @@ void Notas::presionar(){
 
 }
 
+void Notas::dimensionar(float x, float y) {
+
+	_nota.setScale(x, y);
+
+}

@@ -4,19 +4,19 @@
 #include "Animacion.h"
 #include "Cancion.h"
 #include "Render.h"
-#include "Gameplay.h"
+
 
 
 int main(){
   
     Render pantalla;
     
-    Gameplay controlador;
 
 
 
 
-    
+
+
 
 
 
