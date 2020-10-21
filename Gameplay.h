@@ -2,7 +2,7 @@
 #include "Structs.h"
 #include <vector>
 #include <SFML/Graphics.hpp>
-#include "Notas.h"
+#include "Nota.h"
 #include "Cancion.h"
 #include "Render.h"
 

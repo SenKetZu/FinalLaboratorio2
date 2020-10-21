@@ -3,7 +3,7 @@
 
 //private
 void Cancion::getCancion() {
-
+	
 	Hitpoint nota;
 	char buffer[200];
 	char* aux;
@@ -40,10 +40,14 @@ void Cancion::fillCancion()
 	
 	for (Hitpoint nota:_cancionRaw) {
 
-		Notas newNota(nota._pos, sf::Vector2f(.2, .2));
+		Nota _nota;
+		_nota.setAltura(nota._time);
+		_nota.setChanel(nota._pos);
 
-		newNota.setAltura(nota._time);
-		_cancion.push_back(newNota);
+
+		_cancion.push_back(_nota);
+
+
 
 	}
 }
@@ -70,7 +74,7 @@ Hitpoint Cancion::getNota(bool siguiente)
 	return devolver;
 }
 
-std::vector<Notas>& Cancion::cancionFull()
+std::vector<Nota>& Cancion::cancionFull()
 {
 	return _cancion;
 }
@@ -90,9 +94,7 @@ int Cancion::getNext()
 	return _notaActual;
 }
 
-void Cancion::presionarNota(){
-	_cancion[_notaActual].press();
-}
+
 
 
 

@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Notas.h"
+#include "Nota.h"
 #include "Cancion.h"
 #include "Animacion.h"
 #include <vector>
@@ -10,20 +10,20 @@
 
 class Render{
 private:
-
+	sf::Texture tx0, tx1, tx2, tx3;
 	sf::RenderWindow _Ventana;
-	std::vector<Notas> _cancion;
+	std::vector<Nota> _cancion;
 	bool FirstTime = true;
-	
+
 public:
 
 	Render();
 	void fondo();
-	void dibujar(sf::Sprite obj);
-	void dibujar(sf::RectangleShape obj);
+	void dibujar(const sf::Drawable& obj);
+
 	void clear();
 	sf::RenderWindow& devolver();
-	void actualizarNotas(std::vector<Notas>& song);
+	void actualizarNotas(std::vector<Nota>& song);
 
 };
 

@@ -13,23 +13,10 @@
 
 
 int main(){
-   
-    Gameplay main;
-    main.initSong();
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
+    Gameplay juego;
+    juego.initSong();
 
     return 0;
+
 }

@@ -151,7 +151,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Gameplay.cpp" />
     <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="Notas.cpp" />
+    <ClCompile Include="NotaRoja.cpp" />
+    <ClCompile Include="Nota.cpp" />
     <ClCompile Include="Render.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -160,12 +161,10 @@
     <ClInclude Include="Joystick.h" />
     <ClInclude Include="Gameplay.h" />
     <ClInclude Include="Menu.h" />
-    <ClInclude Include="Notas.h" />
+    <ClInclude Include="NotaRoja.h" />
+    <ClInclude Include="Nota.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="Structs.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

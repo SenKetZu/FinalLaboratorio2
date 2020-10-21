@@ -4,9 +4,9 @@
 
 void Gameplay::initSong(){
     //ciclo donde se ejecutara la cancion
-    Cancion _cancion;
+    Cancion cancion;
     Render mostrar;
-    _cancion.SetCancion("kubaLoveNormal.osu");
+    cancion.SetCancion("kubaLoveNormal.osu");
     
     
 
@@ -20,9 +20,7 @@ void Gameplay::initSong(){
         
         
         
-        if(sf::Event::Closed){
-            mostrar.devolver().close();
-        }
+       
        
 
         
@@ -39,8 +37,8 @@ void Gameplay::initSong(){
 
         //mostrar.clear();
         mostrar.fondo();
-        mostrar.actualizarNotas(_cancion.cancionFull());
-        
+        mostrar.actualizarNotas(cancion.cancionFull());
+     
         
         
         mostrar.devolver().display();

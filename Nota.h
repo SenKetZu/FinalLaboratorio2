@@ -1,20 +1,26 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-class Notas{
+
+class Nota{
 private:
 
 	sf::Sprite _nota;
-	sf::Texture _textura;
 	float _altura;
-	int chanel;
-	bool pressed = false;
+	int _chanel;
+	bool _pressed = false;
+	
+
 public:
-	void press();
-	int getChanel();
+
+	
+	
+	void centrar();
+	void setTexture(sf::Texture&tx);
+	void setChanel(int ch);
 	void setAltura(float altura);
 	void addAltura();
 	float getAltura();
-	Notas(int color, sf::Vector2f escala);	
+	int getChanel();
 	sf::Sprite& devolver();
 
 };
