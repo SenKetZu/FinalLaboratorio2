@@ -8,7 +8,7 @@
 
 class Gameplay{
 private:
-	std::vector<Hitpoint> _notasCancion;
+
 
 
 

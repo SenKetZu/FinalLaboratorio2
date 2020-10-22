@@ -30,6 +30,9 @@ void Cancion::getCancion() {
 			nota._time = (atoi(aux)/2)*(-1)-_offset;
 
 			_cancionRaw.push_back(nota);
+			
+
+			
 		}
 	}
 	fclose(_P);
@@ -80,9 +83,19 @@ std::vector<Nota>& Cancion::cancionFull()
 	return _cancion;
 }
 
-int Cancion::getSize()
+int Cancion::getSizeRaw()
 {
 	return _cancionRaw.size();
+}
+
+int Cancion::getSize()
+{
+	return _cancion.size();
+}
+
+Nota Cancion::getLastNota()
+{
+	return _cancion[getSize()];
 }
 
 

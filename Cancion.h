@@ -23,10 +23,13 @@ public:
 
 	void setOffset(int off);
 	int getOffset();
+
 	void SetCancion(const char* cancionPath);
 	std::vector<Nota>& cancionFull();
+	int getSizeRaw();
 	int getSize();
-	
+
+	Nota getLastNota();
 
 
 };

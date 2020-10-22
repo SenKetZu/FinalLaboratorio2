@@ -122,3 +122,38 @@ void Render::actualizarNotas(std::vector<Nota>& song){
 
 
 }
+
+void Render::actualizarPuntaje()
+{
+	// Creamos un objeto fuente
+	sf::Font fuente;
+	// Intentamos cargarla
+	if (!fuente.loadFromFile("sources\\Nightmare_Hero_Normal.ttf"))
+	{
+		std::cout << "fail load ";
+	}
+	sf::RectangleShape fondo(sf::Vector2f(1280, 720));
+	fondo.setFillColor(sf::Color::Black);
+	// objeto texto
+	sf::Text Puntaje;
+
+	Puntaje.setString(); // no se si anda
+	// fuente del texto
+	Puntaje.setFont(fuente);
+	// tamaño de la fuente
+	Puntaje.setCharacterSize(40);
+	// posición del texto
+	Puntaje.setPosition(400, 300);
+	// cambiar el color
+	Puntaje.setFillColor(sf::Color::Red); //aclaro que esto no se si anda
+
+	// Dibujamos en pantalla
+	
+	_Ventana.draw(fondo);
+	_Ventana.draw(Puntaje);
+		
+
+
+
+
+}

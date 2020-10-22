@@ -14,8 +14,8 @@ private:
 	sf::Texture tx0, tx1, tx2, tx3;
 	sf::RenderWindow _Ventana;
 	std::vector<Nota> _cancion;
-	bool FirstTime = true;
 
+	int _puntaje;
 public:
 
 	Render();
@@ -25,6 +25,6 @@ public:
 	void clear();
 	sf::RenderWindow& devolver();
 	void actualizarNotas(std::vector<Nota>& song);
-
+	void actualizarPuntaje();
 };
 
