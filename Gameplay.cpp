@@ -11,15 +11,27 @@ void Gameplay::initSong(){
     
 
 
-    
+    sf::Event event;
     sf::Clock tiempoTranscurrido;
+    
     while (mostrar.devolver().isOpen()){
 
-        sf::Event event;
-        mostrar.devolver().pollEvent(event);
         
         
+        while (mostrar.devolver().pollEvent(event)) {
+
+            if (event.type == sf::Event::Closed) {
+                mostrar.devolver().close();
+            }
+        }
         
+        
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
+
+
+
+
+        }
        
        
 

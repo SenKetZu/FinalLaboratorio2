@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="LA CLASE NOTA Y EL STRUCT HITPOINT SON MANEJADAS POR CANCION">
+    <Position X="11.26" Y="0.885" Height="0.75" Width="3.544" />
+  </Comment>
+  <Comment CommentText="LA CLASE RENDER SE ENCARGA DE MOSTRAR POR PANTALLA Y MANEJAR LAS TEXTURAS">
+    <Position X="8.979" Y="0.885" Height="0.75" Width="1.794" />
+  </Comment>
+  <Comment CommentText="LA CLASE GAMEPLAY MANEJA EL RENDER Y LA CANCION , CONTENIENDO EL CICLO DE LA CANCION">
+    <Position X="6.406" Y="0.896" Height="0.75" Width="2.273" />
+  </Comment>
+  <Class Name="Cancion">
+    <Position X="11.25" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEACICAAQAAIAAQAABAQAAIAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Cancion.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gameplay">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Gameplay.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nota">
+    <Position X="13.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACCACAAAAABAEAAAAAAAAwEAAAAQAQARA=</HashCode>
+      <FileName>Nota.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Render">
+    <Position X="9" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BEAAQAAAAAACAAAAAAAAAABAABAAAAAAABAAAAEBAAE=</HashCode>
+      <FileName>Render.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Hitpoint">
+    <Position X="13.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Structs.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

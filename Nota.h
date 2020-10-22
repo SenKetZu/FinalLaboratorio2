@@ -18,7 +18,7 @@ public:
 	void setTexture(sf::Texture&tx);
 	void setChanel(int ch);
 	void setAltura(float altura);
-	void addAltura();
+	void addAltura(float alt=10.0f);
 	float getAltura();
 	int getChanel();
 	sf::Sprite& devolver();

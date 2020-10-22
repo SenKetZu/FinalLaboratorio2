@@ -55,46 +55,46 @@ sf::RenderWindow& Render::devolver()
 }
 
 void Render::actualizarNotas(std::vector<Nota>& song){
-	float offset = 513.0f;
+	float localOffset = 513.0f;
 
-	for (auto &nota:song) {
+	for (int i = 0; i < song.size();++i) {
 		
-		switch (nota.getChanel())
+		switch (song[i].getChanel())
 		{
 		case 0:
-			nota.devolver().setPosition(offset, nota.getAltura());nota.addAltura(); 
-			if (nota.getAltura() > -30) {
-				nota.setTexture(tx0);
-				nota.devolver().setScale(.25, .25);
-				nota.centrar();
+			song[i].devolver().setPosition(localOffset, song[i].getAltura()); song[i].addAltura();
+			if (song[i].getAltura() > -30) {
+				song[i].setTexture(tx0);
+				song[i].devolver().setScale(.25, .25);
+				song[i].centrar();
 				
 			}
 			break;
 		case 1:
-			nota.devolver().setPosition(offset+64, nota.getAltura());nota.addAltura();
+			song[i].devolver().setPosition(localOffset+64, song[i].getAltura()); song[i].addAltura();
 
-			if (nota.getAltura() > -30) {
-				nota.setTexture(tx1);
-				nota.devolver().setScale(.25, .25);
-				nota.centrar();
+			if (song[i].getAltura() > -30) {
+				song[i].setTexture(tx1);
+				song[i].devolver().setScale(.25, .25);
+				song[i].centrar();
 			}
 			break;
 		case 2:
-			nota.devolver().setPosition(offset+130.5, nota.getAltura());nota.addAltura();
+			song[i].devolver().setPosition(localOffset+130.5, song[i].getAltura()); song[i].addAltura();
 
-			if (nota.getAltura() > -30) {
-				nota.setTexture(tx2);
-				nota.devolver().setScale(.25, .25);
-				nota.centrar();
+			if (song[i].getAltura() > -30) {
+				song[i].setTexture(tx2);
+				song[i].devolver().setScale(.25, .25);
+				song[i].centrar();
 			}
 			break;
 		case 3:
-			nota.devolver().setPosition(offset+191, nota.getAltura());nota.addAltura();
+			song[i].devolver().setPosition(localOffset+191, song[i].getAltura()); song[i].addAltura();
 
-			if (nota.getAltura() > -30) {
-				nota.setTexture(tx3);
-				nota.devolver().setScale(.25, .25);
-				nota.centrar();
+			if (song[i].getAltura() > -30) {
+				song[i].setTexture(tx3);
+				song[i].devolver().setScale(.25, .25);
+				song[i].centrar();
 			}
 			break;
 
@@ -103,9 +103,12 @@ void Render::actualizarNotas(std::vector<Nota>& song){
 			break;
 		}
 
-		_Ventana.draw(nota.devolver());
+		_Ventana.draw(song[i].devolver());
 
+		if (song[i].getAltura() > 680) {
 
+			song.erase(song.begin()+i);
+		}
 
 
 	}

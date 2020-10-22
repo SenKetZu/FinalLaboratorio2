@@ -36,9 +36,9 @@ void Nota::setAltura(float altura)
 	_altura = altura;
 }
 
-void Nota::addAltura()
+void Nota::addAltura(float alt)
 {
-	_altura+=20.0f;
+	_altura+=alt;
 }
 
 float Nota::getAltura()

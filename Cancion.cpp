@@ -27,7 +27,7 @@ void Cancion::getCancion() {
 			aux = strtok(NULL, ",");
 
 
-			nota._time = atoi(aux)/5*-1;
+			nota._time = (atoi(aux)/2)*(-1)-_offset;
 
 			_cancionRaw.push_back(nota);
 		}
@@ -52,6 +52,18 @@ void Cancion::fillCancion()
 	}
 }
 
+void Cancion::setOffset(int off)
+{
+	for (Nota &e : _cancion) {
+		e.addAltura((off * (-1)));
+	}
+}
+
+int Cancion::getOffset()
+{
+	return _offset;
+}
+
 //public
 void Cancion::SetCancion(const char* cancionName){
 	char Dir[50] = "Sources\\Songs\\";
@@ -61,17 +73,6 @@ void Cancion::SetCancion(const char* cancionName){
 
 	getCancion();
 	fillCancion();
-}
-
-
-
-Hitpoint Cancion::getNota(bool siguiente)
-{
-	Hitpoint devolver = _cancionRaw[_notaActual];
-	if (siguiente) {
-		++_notaActual;
-	}
-	return devolver;
 }
 
 std::vector<Nota>& Cancion::cancionFull()
@@ -84,15 +85,7 @@ int Cancion::getSize()
 	return _cancionRaw.size();
 }
 
-int Cancion::getNotasApretadas()
-{
-	return _notasAcertadas+_notasPerdidas;
-}
 
-int Cancion::getNext()
-{
-	return _notaActual;
-}
 
 
 
