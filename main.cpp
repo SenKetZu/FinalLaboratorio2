@@ -15,7 +15,25 @@
 int main(){
 
     Gameplay juego;
+    juego.setConfig();
     juego.initSong();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return 0;
 

@@ -8,37 +8,56 @@
 
 
 
-int Nota::getChanel()
-{
-	return _chanel;
-}
 
-void Nota::centrar()
+
+Nota& Nota::centrar()
 {
 	sf::Vector2f tam(_nota.getGlobalBounds().height, _nota.getGlobalBounds().width);
 
 	_nota.setOrigin(tam.x / 2, tam.y / 2);
-	
+	return *this;
 }
 
-void Nota::setTexture(sf::Texture& tx)
+Nota& Nota::setTexture(sf::Texture& tx)
 {
 	_nota.setTexture(tx);
+	return *this;
 }
 
-void Nota::setChanel(int ch)
+Nota& Nota::setChanel(int ch)
 {
 	_chanel = ch;
+	return *this;
 }
 
-void Nota::setAltura(float altura)
+Nota& Nota::setAltura(float altura)
 {
 	_altura = altura;
+	return *this;
 }
 
-void Nota::addAltura(float alt)
+Nota& Nota::addAltura(float alt)
 {
 	_altura+=alt;
+	return *this;
+}
+
+Nota& Nota::setScale(float x, float y)
+{
+	_nota.setScale(x, y);
+	return *this;
+}
+
+Nota& Nota::setPosition(float x)
+{
+	_nota.setPosition(x, _altura);
+	return *this;
+}
+
+Nota& Nota::setPosition(float x, float y)
+{
+	_nota.setPosition(x, y);
+	return *this;
 }
 
 float Nota::getAltura()
@@ -46,9 +65,10 @@ float Nota::getAltura()
 	return _altura;
 }
 
-
-
-
+int Nota::getChanel()
+{
+	return _chanel;
+}
 
 sf::Sprite& Nota::devolver()
 {

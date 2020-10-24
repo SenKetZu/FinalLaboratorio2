@@ -4,57 +4,53 @@
 
 void Gameplay::initSong(){
     //ciclo donde se ejecutara la cancion
-    Cancion cancion;
-    Render mostrar;
-    cancion.SetCancion("kubaLoveNormal.osu");
     
     
-
-
-    sf::Event event;
-    sf::Clock tiempoTranscurrido;
-    
-    while (mostrar.devolver().isOpen()){
+    while (_mostrar.devolver().isOpen()){
         
-        while (mostrar.devolver().pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                mostrar.devolver().close();
+
+        while (_mostrar.devolver().pollEvent(_event)) {
+            if (_event.type == sf::Event::Closed) {
+                _mostrar.devolver().close();
+            }
+        }
+        
+
+        
+
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+            
+            if (_trast.isColliding(_mostrar.getNotaActual().devolver())&& _mostrar.getNotaActual().getChanel()==0) {
+                _trast.getTrast().setFillColor(sf::Color::Blue);
+            }
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {
+            if (_trast.isColliding(_mostrar.getNotaActual().devolver()) && _mostrar.getNotaActual().getChanel() == 1) {
+                _trast.getTrast().setFillColor(sf::Color::Green);
+            }
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {
+            if (_trast.isColliding(_mostrar.getNotaActual().devolver()) && _mostrar.getNotaActual().getChanel() == 2) {
+                _trast.getTrast().setFillColor(sf::Color::Red);
+            }
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {
+            if (_trast.isColliding(_mostrar.getNotaActual().devolver()) && _mostrar.getNotaActual().getChanel() == 3) {
+                _trast.getTrast().setFillColor(sf::Color(255, 165, 0));
             }
         }
         
        
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-            
-            
-
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::F)) {
-
-
-
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::J)) {
-
-
-
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::K)) {
-
-
-
-        }
-        
-       
-
-
-        mostrar.clear();
-        mostrar.fondo();
-        mostrar.actualizarNotas(cancion.cancionFull());
+        //dibujado
+        _mostrar.clear();
+        _mostrar.fondo();
+        _mostrar.actualizarNotas(_cancion.cancionFull());
      
+        _mostrar.dibujar(_trast.getTrast());
         
-        
-        mostrar.devolver().display();
+        _mostrar.devolver().display();
     }
 
 
@@ -62,6 +58,12 @@ void Gameplay::initSong(){
 
 
 
+}
+
+void Gameplay::setConfig()
+{
+    _cancion.SetCancion("kubaLoveNormal.osu");
+    
 }
 
 

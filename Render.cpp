@@ -22,6 +22,11 @@ Render::Render() :_Ventana(sf::VideoMode(1280, 720), "SANTI LA PUTA QUE TE PARIO
 
 }
 
+Nota& Render::getNotaActual()
+{
+	return _notaAct;
+}
+
 void Render::fondo()
 {
 	sf::RectangleShape fondo(sf::Vector2f(1280, 720));
@@ -62,39 +67,39 @@ void Render::actualizarNotas(std::vector<Nota>& song){
 		switch (song[i].getChanel())
 		{
 		case 0:
-			song[i].devolver().setPosition(localOffset, song[i].getAltura()); song[i].addAltura();
-			if (song[i].getAltura() > -30) {
-				song[i].setTexture(tx0);
-				song[i].devolver().setScale(.25, .25);
-				song[i].centrar();
-				
+
+			song[i].setPosition(localOffset).addAltura();
+
+			if (isNotaOnScreen(song[i])) {
+
+				song[i].setTexture(tx0).centrar().setScale(.25, .25);				
 			}
 			break;
 		case 1:
-			song[i].devolver().setPosition(localOffset+64, song[i].getAltura()); song[i].addAltura();
 
-			if (song[i].getAltura() > -30) {
-				song[i].setTexture(tx1);
-				song[i].devolver().setScale(.25, .25);
-				song[i].centrar();
+			song[i].setPosition(localOffset+64).addAltura();
+
+			if (isNotaOnScreen(song[i])) {
+
+				song[i].setTexture(tx1).centrar().setScale(.25, .25);
 			}
 			break;
 		case 2:
-			song[i].devolver().setPosition(localOffset+130.5, song[i].getAltura()); song[i].addAltura();
 
-			if (song[i].getAltura() > -30) {
-				song[i].setTexture(tx2);
-				song[i].devolver().setScale(.25, .25);
-				song[i].centrar();
+			song[i].setPosition(localOffset+130.5).addAltura();
+
+			if (isNotaOnScreen(song[i])) {
+
+				song[i].setTexture(tx2).centrar().setScale(.25, .25);
 			}
 			break;
 		case 3:
-			song[i].devolver().setPosition(localOffset+191, song[i].getAltura()); song[i].addAltura();
 
-			if (song[i].getAltura() > -30) {
-				song[i].setTexture(tx3);
-				song[i].devolver().setScale(.25, .25);
-				song[i].centrar();
+			song[i].setPosition(localOffset+191).addAltura();
+
+			if (isNotaOnScreen(song[i])) {
+
+				song[i].setTexture(tx3).centrar().setScale(.25, .25);
 			}
 			break;
 
@@ -102,15 +107,17 @@ void Render::actualizarNotas(std::vector<Nota>& song){
 		default:
 			break;
 		}
+		if (song[i].getAltura()>680&& song[i].getAltura()<720) {
+			_notaAct = song[i];
+		}
+		
 
-		_Ventana.draw(song[i].devolver());
-
-		if (song[i].getAltura() > 680) {
+		if (song[i].getAltura() > 720) {
 
 			song.erase(song.begin()+i);
 		}
 
-
+		_Ventana.draw(song[i].devolver());
 	}
 
 
@@ -137,7 +144,7 @@ void Render::actualizarPuntaje()
 	// objeto texto
 	sf::Text Puntaje;
 
-	Puntaje.setString(); // no se si anda
+	Puntaje.setString(""); // no se si anda
 	// fuente del texto
 	Puntaje.setFont(fuente);
 	// tamaño de la fuente
@@ -156,4 +163,12 @@ void Render::actualizarPuntaje()
 
 
 
+}
+
+bool Render::isNotaOnScreen(Nota& nt)
+{
+	if (nt.getAltura() > -30) {
+		return true;
+	}
+	return false;	
 }

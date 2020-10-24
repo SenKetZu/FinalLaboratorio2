@@ -5,13 +5,16 @@
 #include "Nota.h"
 #include "Cancion.h"
 #include "Render.h"
+#include "Colision.h"
+
 
 class Gameplay{
 private:
-
-
-
-
+	sf::Event _event;
+	Render _mostrar;
+	Cancion _cancion;
+	Colision _trast;
+	
 
 
 
@@ -19,7 +22,7 @@ private:
 public:
 
 	 void initSong();
-
+	 void setConfig();
 
 };
 
