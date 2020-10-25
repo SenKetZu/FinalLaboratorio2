@@ -34,6 +34,18 @@ void Render::fondo()
 	fondoT.loadFromFile("Sources\\Fondo-1.jpg");
 	fondo.setTexture(&fondoT);
 	_Ventana.draw(fondo);
+
+	sf::Sprite mangoBLUR;
+	sf::Texture mangoTBLUR;
+	mangoTBLUR.loadFromFile("Sources\\fondo_mango-recortado.png");
+	mangoBLUR.setTexture(mangoTBLUR);
+	mangoBLUR.setScale(.7, .7);
+	mangoBLUR.setPosition(470, 0);
+	
+	_Ventana.draw(mangoBLUR);
+
+
+
 	sf::Sprite mango;
 	sf::Texture mangoT;
 	mangoT.loadFromFile("Sources\\todas_la_notas-centrada.png");
@@ -41,7 +53,7 @@ void Render::fondo()
 	mango.setScale(.65, .65);
 	mango.setPosition(500,20);
 	_Ventana.draw(mango);
-
+	
 }
 
 void Render::dibujar(const sf::Drawable& obj) {
@@ -61,63 +73,90 @@ sf::RenderWindow& Render::devolver()
 
 void Render::actualizarNotas(std::vector<Nota>& song){
 	float localOffset = 513.0f;
-
+	bool ultima = true;
+	
 	for (int i = 0; i < song.size();++i) {
 		
+		if (song[i].getAltura() > 720) {
+
+			song.erase(song.begin() + i);
+			continue;
+		}
+		
+
 		switch (song[i].getChanel())
 		{
 		case 0:
+			
+			
+			song[i].addAltura().setPosition(localOffset);
 
-			song[i].setPosition(localOffset).addAltura();
+			if (!song[i].getOnScreen()) {
 
-			if (isNotaOnScreen(song[i])) {
-
-				song[i].setTexture(tx0).centrar().setScale(.25, .25);				
+				song[i].setTexture(tx0).centrar().setScale(.25, .25);
+				
 			}
 			break;
+
 		case 1:
 
-			song[i].setPosition(localOffset+64).addAltura();
+			song[i].addAltura().setPosition(localOffset + 64);
 
-			if (isNotaOnScreen(song[i])) {
+			if (!song[i].getOnScreen()) {
 
 				song[i].setTexture(tx1).centrar().setScale(.25, .25);
+			
 			}
 			break;
+
 		case 2:
 
-			song[i].setPosition(localOffset+130.5).addAltura();
+			song[i].addAltura().setPosition(localOffset + 130.5);
 
-			if (isNotaOnScreen(song[i])) {
+			if (!song[i].getOnScreen()) {
 
 				song[i].setTexture(tx2).centrar().setScale(.25, .25);
+				
 			}
+
 			break;
+
 		case 3:
 
-			song[i].setPosition(localOffset+191).addAltura();
+			song[i].addAltura().setPosition(localOffset + 191);
 
-			if (isNotaOnScreen(song[i])) {
+			if (!song[i].getOnScreen()) {
 
 				song[i].setTexture(tx3).centrar().setScale(.25, .25);
+				
 			}
 			break;
-
 
 		default:
 			break;
 		}
-		if (song[i].getAltura()>680&& song[i].getAltura()<720) {
-			_notaAct = song[i];
+
+		if (song[i].getAltura() > -30) {
+			song[i].setOnScreen();
+			
 		}
 		
 
-		if (song[i].getAltura() > 720) {
-
-			song.erase(song.begin()+i);
+		if (song[i].getAltura()>680&& song[i].getAltura()<720&&ultima) {
+			_notaAct = song[i];
+			ultima = false;
+			
+			
 		}
 
+
 		_Ventana.draw(song[i].devolver());
+
+
+		
+		
+
+		
 	}
 
 

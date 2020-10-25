@@ -2,8 +2,8 @@
 
 Colision::Colision()
 {
-	_traste.setSize({ 250,40 });
-	_traste.setPosition(500, 670);
+	_traste.setSize({ 250,50 });
+	_traste.setPosition(500, 640);
 
 
 

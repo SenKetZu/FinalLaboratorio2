@@ -14,7 +14,7 @@ private:
 	Render _mostrar;
 	Cancion _cancion;
 	Colision _trast;
-	
+	bool press[4] = { false };
 
 
 
@@ -23,6 +23,9 @@ public:
 
 	 void initSong();
 	 void setConfig();
+	 void gameLoop();
+	 void inputs();
+
 
 };
 

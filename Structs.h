@@ -2,5 +2,6 @@
 
 struct Hitpoint {
 	int _pos;
-	int _time;
+	float _time;
+
 };

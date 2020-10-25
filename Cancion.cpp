@@ -27,7 +27,7 @@ void Cancion::getCancion() {
 			aux = strtok(NULL, ",");
 
 
-			nota._time = (atoi(aux)/2)*(-1)-_offset;
+			nota._time = (atof(aux)/4)*(-1)-_offset;
 
 			_cancionRaw.push_back(nota);
 			
@@ -55,6 +55,11 @@ void Cancion::fillCancion()
 	}
 }
 
+sf::Music& Cancion::getSonido()
+{
+	return _sonido;
+}
+
 void Cancion::setOffset(int off)
 {
 	for (Nota &e : _cancion) {
@@ -76,9 +81,12 @@ void Cancion::SetCancion(const char* cancionName){
 
 	getCancion();
 	fillCancion();
+
+	_sonido.openFromFile("Sources\\Songs\\MyLove.wav");
+	_sonido.setVolume(10.0f);
 }
 
-std::vector<Nota>& Cancion::cancionFull()
+std::vector<Nota>& Cancion::getCancionNota()
 {
 	return _cancion;
 }

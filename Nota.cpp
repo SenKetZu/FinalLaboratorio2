@@ -60,6 +60,12 @@ Nota& Nota::setPosition(float x, float y)
 	return *this;
 }
 
+Nota& Nota::setOnScreen()
+{
+	_isOnScreen = true;
+	return *this;
+}
+
 float Nota::getAltura()
 {
 	return _altura;
@@ -68,6 +74,11 @@ float Nota::getAltura()
 int Nota::getChanel()
 {
 	return _chanel;
+}
+
+bool Nota::getOnScreen()
+{
+	return _isOnScreen;
 }
 
 sf::Sprite& Nota::devolver()

@@ -9,32 +9,42 @@
   <Comment CommentText="LA CLASE GAMEPLAY MANEJA EL RENDER Y LA CANCION , CONTENIENDO EL CICLO DE LA CANCION">
     <Position X="6.406" Y="0.896" Height="0.75" Width="2.273" />
   </Comment>
+  <Comment CommentText="LA CLASE COLISION REVISA SI UNA NOTA ESTA EN LA POSICION PARA SER APRETADA, Y LE AVISA AL GAMEPLAY">
+    <Position X="4.042" Y="0.885" Height="0.75" Width="2.085" />
+  </Comment>
   <Class Name="Cancion">
     <Position X="11.25" Y="1.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEACICAAQAAIAAQAABAQAAIAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAEACoCAAVAIIAAQAABAAAAIAAAAAAAABAAAQAA=</HashCode>
       <FileName>Cancion.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Gameplay">
     <Position X="6.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACABAAAAAAAAIAAAABAAAAgAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Gameplay.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Nota">
     <Position X="13.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAACCACAAAAABAEAAAAAAAAwEAAAAQAQARA=</HashCode>
+      <HashCode>AAAAAAAAAAACCACAAAAABAECAAAAAAAyEAAAAQAQARA=</HashCode>
       <FileName>Nota.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Render">
     <Position X="9" Y="1.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>BEAAQAAAAAACAAAAAAAAAABAABAAAAAAABAAAAEBAAE=</HashCode>
+      <HashCode>BEAAAAAAABACAAAgAAAAAABAABQAAAAEABAAAAEBAAE=</HashCode>
       <FileName>Render.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Colision">
+    <Position X="4.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAABCAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Colision.h</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Hitpoint">
