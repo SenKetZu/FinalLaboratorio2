@@ -26,6 +26,7 @@ public:
 	Nota& setPosition(float x );
 	Nota& setPosition(float x, float y);
 	Nota& setOnScreen();
+	Nota& setOffScreen();
 	sf::Sprite& devolver();
 
 };

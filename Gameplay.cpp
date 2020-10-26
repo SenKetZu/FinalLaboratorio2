@@ -19,6 +19,7 @@ void Gameplay::gameLoop()
 {
     
     _cancion.getSonido().play();
+
     while (_mostrar.devolver().isOpen()) {
 
 
@@ -32,15 +33,11 @@ void Gameplay::gameLoop()
         
         
 
-        
-
-
-
         //dibujado
         _mostrar.clear();
-        _mostrar.fondo();
+        _mostrar.mostrarFondo();
         _mostrar.dibujar(_trast.getTrast());
-        _mostrar.actualizarNotas(_cancion.getCancionNota());
+        _mostrar.actualizarNotas(_cancion.getCancionNotas());
 
         
 
@@ -52,12 +49,13 @@ void Gameplay::gameLoop()
 void Gameplay::inputs()
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-        //if (!press[0]) {
-        //    press[0] = true;
-            if (_trast.isColliding(_mostrar.getNotaActual().devolver()) && _mostrar.getNotaActual().getChanel() == 0) {
+        if (!press[0]) {
+            press[0] = true;
+            if (_trast.isNoteColliding(_cancion.getCancionNotas(),0)) {
+                //aca se cambia para sumar puntos
                 _trast.getTrast().setFillColor(sf::Color::Blue);
             }
-        //}
+        }
     }
     else {
         press[0] = false;
@@ -65,7 +63,8 @@ void Gameplay::inputs()
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {
         if (!press[1]) {
             press[1] = true;
-            if (_trast.isColliding(_mostrar.getNotaActual().devolver()) && _mostrar.getNotaActual().getChanel() == 1) {
+            if (_trast.isNoteColliding(_cancion.getCancionNotas(), 1)) {
+                //aca se cambia para sumar puntos
                 _trast.getTrast().setFillColor(sf::Color::Green);
             }
         }
@@ -76,7 +75,8 @@ void Gameplay::inputs()
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {
         if (!press[2]) {
             press[2] = true;
-            if (_trast.isColliding(_mostrar.getNotaActual().devolver()) && _mostrar.getNotaActual().getChanel() == 2) {
+            if (_trast.isNoteColliding(_cancion.getCancionNotas(), 2)) {
+                //aca se cambia para sumar puntos
                 _trast.getTrast().setFillColor(sf::Color::Red);
             }
         }
@@ -87,7 +87,8 @@ void Gameplay::inputs()
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {
         if (!press[3]) {
             press[3] = true;
-            if (_trast.isColliding(_mostrar.getNotaActual().devolver()) && _mostrar.getNotaActual().getChanel() == 3) {
+            if (_trast.isNoteColliding(_cancion.getCancionNotas(), 3)) {
+                //aca se cambia para sumar puntos
                 _trast.getTrast().setFillColor(sf::Color(255, 165, 0));
             }
         }

@@ -6,10 +6,10 @@
 
 
 
-Render::Render() :_Ventana(sf::VideoMode(1280, 720), "SANTI LA PUTA QUE TE PARIO", sf::Style::Default)
+Render::Render() :_Ventana(sf::VideoMode(1280, 720), "V011", sf::Style::Default)
 { 
-	_Ventana.setFramerateLimit(60);
-	sf::Texture tx;
+	_Ventana.setFramerateLimit(120);
+
 	
 	tx0.loadFromFile("Sources\\NotaAzul.png");
 	tx1.loadFromFile("Sources\\NotaVerde.png");
@@ -22,12 +22,9 @@ Render::Render() :_Ventana(sf::VideoMode(1280, 720), "SANTI LA PUTA QUE TE PARIO
 
 }
 
-Nota& Render::getNotaActual()
-{
-	return _notaAct;
-}
 
-void Render::fondo()
+
+void Render::mostrarFondo()
 {
 	sf::RectangleShape fondo(sf::Vector2f(1280, 720));
 	sf::Texture fondoT;
@@ -78,11 +75,8 @@ void Render::actualizarNotas(std::vector<Nota>& song){
 	for (int i = 0; i < song.size();++i) {
 		
 		if (song[i].getAltura() > 720) {
-
-			song.erase(song.begin() + i);
-			continue;
+			song[i].setOffScreen();
 		}
-		
 
 		switch (song[i].getChanel())
 		{
@@ -136,27 +130,17 @@ void Render::actualizarNotas(std::vector<Nota>& song){
 			break;
 		}
 
-		if (song[i].getAltura() > -30) {
+		if (song[i].getAltura()>-30&&!song[i].getOnScreen()) {
 			song[i].setOnScreen();
 			
 		}
-		
-
-		if (song[i].getAltura()>680&& song[i].getAltura()<720&&ultima) {
-			_notaAct = song[i];
-			ultima = false;
-			
-			
+		if (song[i].getOnScreen()) {
+			_Ventana.draw(song[i].devolver());
 		}
-
-
-		_Ventana.draw(song[i].devolver());
-
-
-		
 		
 
 		
+
 	}
 
 
@@ -204,10 +188,4 @@ void Render::actualizarPuntaje()
 
 }
 
-bool Render::isNotaOnScreen(Nota& nt)
-{
-	if (nt.getAltura() > -30) {
-		return true;
-	}
-	return false;	
-}
+

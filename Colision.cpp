@@ -18,6 +18,23 @@ bool Colision::isColliding(sf::Sprite& obj)
 	return false;	
 }
 
+bool Colision::isNoteColliding(std::vector<Nota> cancion, int chanel)
+{
+	
+	for (Nota x : cancion) {
+		if (x.getOnScreen()) {
+			if (_traste.getGlobalBounds().intersects(x.devolver().getGlobalBounds()) && x.getChanel() == chanel) {
+				return true;
+			}
+		}
+	}
+	return false;
+
+
+
+
+}
+
 sf::RectangleShape& Colision::getTrast()
 {
 	return _traste;

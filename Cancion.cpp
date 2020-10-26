@@ -27,7 +27,7 @@ void Cancion::getCancion() {
 			aux = strtok(NULL, ",");
 
 
-			nota._time = (atof(aux)/4)*(-1)-_offset;
+			nota._time = (atof(aux)/5)*(-1)-_offset;
 
 			_cancionRaw.push_back(nota);
 			
@@ -86,7 +86,7 @@ void Cancion::SetCancion(const char* cancionName){
 	_sonido.setVolume(10.0f);
 }
 
-std::vector<Nota>& Cancion::getCancionNota()
+std::vector<Nota>& Cancion::getCancionNotas()
 {
 	return _cancion;
 }

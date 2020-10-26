@@ -28,7 +28,7 @@ public:
 	int getSizeRaw();
 	int getSize();
 	Nota getLastNota();
-	std::vector<Nota>& getCancionNota();
+	std::vector<Nota>& getCancionNotas();
 	
 
 	

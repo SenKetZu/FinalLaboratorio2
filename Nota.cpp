@@ -62,7 +62,13 @@ Nota& Nota::setPosition(float x, float y)
 
 Nota& Nota::setOnScreen()
 {
-	_isOnScreen = true;
+	_isOnScreen =true;
+	return *this;
+}
+
+Nota& Nota::setOffScreen()
+{
+	_isOnScreen = false;
 	return *this;
 }
 
