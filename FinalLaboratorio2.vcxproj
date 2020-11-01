@@ -153,6 +153,7 @@
     <ClCompile Include="Gameplay.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Nota.cpp" />
+    <ClCompile Include="Pressable.cpp" />
     <ClCompile Include="Render.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +164,7 @@
     <ClInclude Include="Gameplay.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Nota.h" />
+    <ClInclude Include="Pressable.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="Structs.h" />
   </ItemGroup>

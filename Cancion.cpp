@@ -1,5 +1,5 @@
 #include "Cancion.h"
-
+#include <iostream>
 
 //private
 void Cancion::getCancion() {
@@ -27,7 +27,7 @@ void Cancion::getCancion() {
 			aux = strtok(NULL, ",");
 
 
-			nota._time = (atof(aux)/5)*(-1)-_offset;
+			nota._time = ((atof(aux)/ _Dificultad)*(-1.0f))-_offset;
 
 			_cancionRaw.push_back(nota);
 			
@@ -46,7 +46,7 @@ void Cancion::fillCancion()
 		Nota _nota;
 		_nota.setAltura(nota._time);
 		_nota.setChanel(nota._pos);
-
+		_nota.setSpeed(16.6666666f/_Dificultad);
 
 		_cancion.push_back(_nota);
 
@@ -83,7 +83,7 @@ void Cancion::SetCancion(const char* cancionName){
 	fillCancion();
 
 	_sonido.openFromFile("Sources\\Songs\\MyLove.wav");
-	_sonido.setVolume(10.0f);
+	_sonido.setVolume(0);
 }
 
 std::vector<Nota>& Cancion::getCancionNotas()

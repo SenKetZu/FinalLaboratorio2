@@ -2,9 +2,9 @@
 
 Colision::Colision()
 {
-	_traste.setSize({ 250,50 });
-	_traste.setPosition(500, 640);
-
+	_traste.setSize({ 250,30 });
+	_traste.setPosition(500, 675);
+	_traste.setFillColor(sf::Color::Transparent);
 
 
 }

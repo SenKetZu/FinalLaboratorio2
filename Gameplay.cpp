@@ -17,7 +17,7 @@ void Gameplay::setConfig()
 
 void Gameplay::gameLoop()
 {
-    
+    _cancion.getSonido().setVolume(30);
     _cancion.getSonido().play();
 
     while (_mostrar.devolver().isOpen()) {
@@ -28,7 +28,8 @@ void Gameplay::gameLoop()
                 _mostrar.devolver().close();
             }
         }
-        _trast.getTrast().setFillColor(sf::Color::Transparent);
+        
+
         inputs();
         
         
@@ -38,10 +39,11 @@ void Gameplay::gameLoop()
         _mostrar.mostrarFondo();
         _mostrar.dibujar(_trast.getTrast());
         _mostrar.actualizarNotas(_cancion.getCancionNotas());
-
+        _mostrar.mostrarPuntaje();
         
 
         _mostrar.devolver().display();
+        
     }
 
 }
@@ -53,7 +55,8 @@ void Gameplay::inputs()
             press[0] = true;
             if (_trast.isNoteColliding(_cancion.getCancionNotas(),0)) {
                 //aca se cambia para sumar puntos
-                _trast.getTrast().setFillColor(sf::Color::Blue);
+                _mostrar.actualizarPuntaje();
+                
             }
         }
     }
@@ -65,7 +68,8 @@ void Gameplay::inputs()
             press[1] = true;
             if (_trast.isNoteColliding(_cancion.getCancionNotas(), 1)) {
                 //aca se cambia para sumar puntos
-                _trast.getTrast().setFillColor(sf::Color::Green);
+                _mostrar.actualizarPuntaje();
+               
             }
         }
     }
@@ -77,7 +81,8 @@ void Gameplay::inputs()
             press[2] = true;
             if (_trast.isNoteColliding(_cancion.getCancionNotas(), 2)) {
                 //aca se cambia para sumar puntos
-                _trast.getTrast().setFillColor(sf::Color::Red);
+                _mostrar.actualizarPuntaje();
+                
             }
         }
     }
@@ -89,7 +94,8 @@ void Gameplay::inputs()
             press[3] = true;
             if (_trast.isNoteColliding(_cancion.getCancionNotas(), 3)) {
                 //aca se cambia para sumar puntos
-                _trast.getTrast().setFillColor(sf::Color(255, 165, 0));
+                _mostrar.actualizarPuntaje();
+                
             }
         }
     }

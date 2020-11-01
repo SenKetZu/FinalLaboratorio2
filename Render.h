@@ -11,12 +11,14 @@
 class Render{
 private:
 
-	sf::Texture tx0, tx1, tx2, tx3;
+	sf::Texture _tx0, _tx1, _tx2, _tx3, _fondoT, _mangoTBLUR, _mangoT,_splashT;
 	sf::RenderWindow _Ventana;
 	std::vector<Nota> _cancion;
-	
-
-
+	sf::Sprite _mangoBLUR, _mango,_splash;
+	sf::Font _fuente;
+	sf::Text _PuntajeText;
+	int _puntajeInt = 0;
+	bool _seteadas = false;
 private:
 	
 
@@ -30,6 +32,7 @@ public:
 	void dibujar(const sf::Drawable& obj);
 	void actualizarNotas(std::vector<Nota>& song);
 	void actualizarPuntaje();
+	void mostrarPuntaje();
 	sf::RenderWindow& devolver();
 };
 
