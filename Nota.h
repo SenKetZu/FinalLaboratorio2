@@ -1,7 +1,8 @@
 #pragma once
 #include "Pressable.h"
 
-class Nota:public Pressable{
+class Nota: public Pressable{
+
 
 
 };

@@ -1,54 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Comment CommentText="LA CLASE NOTA Y EL STRUCT HITPOINT SON MANEJADAS POR CANCION">
-    <Position X="11.26" Y="0.885" Height="0.75" Width="3.544" />
-  </Comment>
-  <Comment CommentText="LA CLASE RENDER SE ENCARGA DE MOSTRAR POR PANTALLA Y MANEJAR LAS TEXTURAS">
-    <Position X="8.979" Y="0.885" Height="0.75" Width="1.794" />
-  </Comment>
-  <Comment CommentText="LA CLASE GAMEPLAY MANEJA EL RENDER Y LA CANCION , CONTENIENDO EL CICLO DE LA CANCION">
-    <Position X="6.406" Y="0.896" Height="0.75" Width="2.273" />
-  </Comment>
-  <Comment CommentText="LA CLASE COLISION REVISA SI UNA NOTA ESTA EN LA POSICION PARA SER APRETADA, Y LE AVISA AL GAMEPLAY">
-    <Position X="4.042" Y="0.885" Height="0.75" Width="2.085" />
-  </Comment>
-  <Class Name="Cancion">
-    <Position X="11.25" Y="1.75" Width="1.75" />
+  <Class Name="Animacion" Collapsed="true">
+    <Position X="9" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEACoCAAVAIIAAQAABAAAAIAAAAAAAABAAAQAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Animacion.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cancion" Collapsed="true">
+    <Position X="10.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAEACoCAAVAIIAAQAABAAAAIAAAAAAAABAAAQAA=</HashCode>
       <FileName>Cancion.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Gameplay">
-    <Position X="6.75" Y="1.75" Width="1.5" />
+  <Class Name="Colision" Collapsed="true">
+    <Position X="12.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACABAAAAAAAAIAAAABAAAAgAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>Gameplay.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Nota">
-    <Position X="13.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAACCACAAAAABAECAAAAAAAyEAAAAQAQARA=</HashCode>
-      <FileName>Nota.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Render">
-    <Position X="9" Y="1.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>BEAAAAAAABACAAAgAAAAAABAABQAAAAEABAAAAEBAAE=</HashCode>
-      <FileName>Render.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Colision">
-    <Position X="4.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AgAAAAABCAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAABCAAAAAAAAAAAAAAAAAAAAAAgAAAAAAACAAA=</HashCode>
       <FileName>Colision.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Struct Name="Hitpoint">
-    <Position X="13.25" Y="1.75" Width="1.5" />
+  <Class Name="Joystick" Collapsed="true">
+    <Position X="10.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Joystick.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gameplay" Collapsed="true">
+    <Position X="9" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACABAAAAAAAAIAAAAFAAABgABAAAAAAAAAAAAg=</HashCode>
+      <FileName>Gameplay.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu" Collapsed="true">
+    <Position X="12.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nota">
+    <Position X="6.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Nota.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pressable">
+    <Position X="4.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAICCACAAAAABAECAAAwAAIiFAAAAQAQARA=</HashCode>
+      <FileName>Pressable.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Render" Collapsed="true">
+    <Position X="9" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGAAAAAgAAAiAAGCAAAAAA9IABQAAAAAABAAUAABAgM=</HashCode>
+      <FileName>Render.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Hitpoint" Collapsed="true">
+    <Position X="9" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Structs.h</FileName>

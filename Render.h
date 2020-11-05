@@ -15,10 +15,12 @@ private:
 	sf::RenderWindow _Ventana;
 	std::vector<Nota> _cancion;
 	sf::Sprite _mangoBLUR, _mango,_splash;
+	sf::RectangleShape _fondo;
 	sf::Font _fuente;
 	sf::Text _PuntajeText;
 	int _puntajeInt = 0;
-	bool _seteadas = false;
+	bool _seteadas = false, _sp;
+	float localOffset = 527.0f;
 private:
 	
 
@@ -33,6 +35,8 @@ public:
 	void actualizarNotas(std::vector<Nota>& song);
 	void actualizarPuntaje();
 	void mostrarPuntaje();
+	void splash(int ch);
+	void splash();
 	sf::RenderWindow& devolver();
 };
 

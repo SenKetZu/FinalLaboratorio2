@@ -17,11 +17,14 @@ void Gameplay::setConfig()
 
 void Gameplay::gameLoop()
 {
-    _cancion.getSonido().setVolume(30);
+    int tic=0;
+    _cancion.getSonido().setVolume(0);
     _cancion.getSonido().play();
 
     while (_mostrar.devolver().isOpen()) {
-
+        if (tic == 61) {
+            tic = 0;
+        }
 
         while (_mostrar.devolver().pollEvent(_event)) {
             if (_event.type == sf::Event::Closed) {
@@ -40,10 +43,15 @@ void Gameplay::gameLoop()
         _mostrar.dibujar(_trast.getTrast());
         _mostrar.actualizarNotas(_cancion.getCancionNotas());
         _mostrar.mostrarPuntaje();
+        if (tic > 30) {
+            _mostrar.splash();
+        }
         
 
         _mostrar.devolver().display();
-        
+
+
+        ++tic;
     }
 
 }
@@ -56,6 +64,7 @@ void Gameplay::inputs()
             if (_trast.isNoteColliding(_cancion.getCancionNotas(),0)) {
                 //aca se cambia para sumar puntos
                 _mostrar.actualizarPuntaje();
+                _mostrar.splash(0);
                 
             }
         }
@@ -69,6 +78,7 @@ void Gameplay::inputs()
             if (_trast.isNoteColliding(_cancion.getCancionNotas(), 1)) {
                 //aca se cambia para sumar puntos
                 _mostrar.actualizarPuntaje();
+                _mostrar.splash(1);
                
             }
         }
@@ -82,6 +92,7 @@ void Gameplay::inputs()
             if (_trast.isNoteColliding(_cancion.getCancionNotas(), 2)) {
                 //aca se cambia para sumar puntos
                 _mostrar.actualizarPuntaje();
+                _mostrar.splash(2);
                 
             }
         }
@@ -95,6 +106,7 @@ void Gameplay::inputs()
             if (_trast.isNoteColliding(_cancion.getCancionNotas(), 3)) {
                 //aca se cambia para sumar puntos
                 _mostrar.actualizarPuntaje();
+                _mostrar.splash(3);
                 
             }
         }

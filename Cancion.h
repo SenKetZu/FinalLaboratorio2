@@ -15,6 +15,7 @@ private:
 	std::vector<Hitpoint> _cancionRaw;
 	std::vector<Nota> _cancion;
 	sf::Music _sonido;
+
 private:
 
 	void getCancion();

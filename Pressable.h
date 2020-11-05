@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+
+
 class Pressable
 {
 private:
@@ -9,7 +11,6 @@ private:
 	int _chanel;
 	bool _isOnScreen = false;
 
-
 public:
 
 
@@ -17,6 +18,8 @@ public:
 	virtual int getChanel();
 	virtual bool getOnScreen();
 
+
+	
 	virtual Pressable& centrar();
 	virtual Pressable& setTexture(sf::Texture& tx);
 	virtual Pressable& setChanel(int ch);

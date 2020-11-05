@@ -9,13 +9,14 @@
 Render::Render() :_Ventana(sf::VideoMode(1280, 720), "V011", sf::Style::Default)
 { 
 	_Ventana.setFramerateLimit(60);
-
+	_fondo.setSize((sf::Vector2f(1280, 720)));
 	
 	_tx0.loadFromFile("Sources\\NotaAzul.png");
 	_tx1.loadFromFile("Sources\\NotaVerde.png");
 	_tx2.loadFromFile("Sources\\NotaRoja.png");
 	_tx3.loadFromFile("Sources\\NotaNaranja.png");
 
+	_splashT.loadFromFile("sources\\splash.png");
 	_fondoT.loadFromFile("Sources\\Fondo-1.jpg");
 	_mangoTBLUR.loadFromFile("Sources\\fondo_mango-recortado.png");
 	_mangoT.loadFromFile("Sources\\todas_la_notas-centrada.png");
@@ -29,21 +30,21 @@ Render::Render() :_Ventana(sf::VideoMode(1280, 720), "V011", sf::Style::Default)
 	// posición del texto
 	_PuntajeText.setPosition(400, 600);
 	// cambiar el color
-	_PuntajeText.setFillColor(sf::Color::Red); 
+	_PuntajeText.setFillColor(sf::Color::Cyan); 
+	
+	_splash.setTexture(_splashT);
+	_splash.setScale(.15, .15);
 }
 
 
 
 void Render::mostrarFondo()
 {
-	sf::RectangleShape fondo(sf::Vector2f(1280, 720));
+	
 
 	
-	fondo.setTexture(&_fondoT);
-	_Ventana.draw(fondo);
-
-
-
+	_fondo.setTexture(&_fondoT);
+	_Ventana.draw(_fondo);
 	
 	_mangoBLUR.setTexture(_mangoTBLUR);
 	_mangoBLUR.setScale(.7, .7);
@@ -51,11 +52,6 @@ void Render::mostrarFondo()
 	
 	_Ventana.draw(_mangoBLUR);
 
-
-
-
-
-	
 	_mango.setTexture(_mangoT);
 	_mango.setScale(.65, .65);
 	_mango.setPosition(500,20);
@@ -79,7 +75,7 @@ sf::RenderWindow& Render::devolver()
 }
 
 void Render::actualizarNotas(std::vector<Nota>& song){
-	float localOffset = 527.0f;
+	
 	
 	for (int i = 0; i < song.size();++i) {
 		
@@ -96,6 +92,7 @@ void Render::actualizarNotas(std::vector<Nota>& song){
 			if (!_seteadas) {
 
 				song[i].setTexture(_tx0).centrar().setScale(.25, .25);
+	
 				
 			}
 			break;
@@ -158,6 +155,42 @@ void Render::actualizarPuntaje()
 void Render::mostrarPuntaje()
 {
 	_Ventana.draw(_PuntajeText);
+}
+
+void Render::splash(int ch)
+{
+	switch (ch)
+	{
+	case 0:
+		_splash.setPosition({ localOffset-35 ,645 });
+		_sp = true;
+		break;
+	case 1:
+		_splash.setPosition({ localOffset+64-35 ,645 });
+		_sp = true;
+		break;
+	case 2:
+		_splash.setPosition({ localOffset+130-35 ,645 });
+		_sp = true;
+		break;
+	case 3:
+		_splash.setPosition({ localOffset+191-35 ,645 });
+		_sp = true;
+		break;
+
+
+	default:
+		break;
+	}
+	_Ventana.draw(_splash);
+}
+
+void Render::splash()
+{
+	if (_sp) {
+		_Ventana.draw(_splash);
+	}
+	
 }
 
 
