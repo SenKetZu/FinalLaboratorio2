@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Gameplay.h"
+#include "Archivo.h"
+#include "Menu.h"
 /*
 
 #include "Notas.h"
@@ -13,27 +15,15 @@
 
 
 int main(){
+  
+    
+    Menu main;
+  
 
-    Gameplay juego;
-    juego.initSong();
+    
+    
 
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
     return 0;
 
 }

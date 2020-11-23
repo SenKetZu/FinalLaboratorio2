@@ -46,13 +46,31 @@ void Cancion::fillCancion()
 		Nota _nota;
 		_nota.setAltura(nota._time);
 		_nota.setChanel(nota._pos);
-		_nota.setSpeed(16.6666666f/_Dificultad);
+		_nota.setSpeed(16.6666666f / _Dificultad);
+		switch (nota._pos)
+		{
+		case 0:
+			_notasAzules.push_back(_nota);
+			break;
+		case 1:
+			_notasVerdes.push_back(_nota);
+			break;
+		case 2:
+			_notasRojas.push_back(_nota);
+			break;
+		case 3:
+			_notasNaranjas.push_back(_nota);
+			break;
 
-		_cancion.push_back(_nota);
-
-
-
+		default:
+			break;
+		}
 	}
+	_cancion.push_back(_notasAzules);
+	_cancion.push_back(_notasVerdes);
+	_cancion.push_back(_notasRojas);
+	_cancion.push_back(_notasNaranjas);
+
 }
 
 sf::Music& Cancion::getSonido()
@@ -62,8 +80,11 @@ sf::Music& Cancion::getSonido()
 
 void Cancion::setOffset(int off)
 {
-	for (Nota &e : _cancion) {
-		e.addAltura((off * (-1)));
+	for (std::vector<Nota> &e : _cancion) {
+		for (Nota& i : e) {
+			i.addAltura((off * (-1)));
+		}
+		
 	}
 }
 
@@ -86,7 +107,7 @@ void Cancion::SetCancion(const char* cancionName){
 	_sonido.setVolume(0);
 }
 
-std::vector<Nota>& Cancion::getCancionNotas()
+std::vector<std::vector<Nota>>& Cancion::getCancionNotas()
 {
 	return _cancion;
 }
@@ -101,9 +122,21 @@ int Cancion::getSize()
 	return _cancion.size();
 }
 
-Nota Cancion::getLastNota()
+std::vector<Nota>& Cancion::getNotas(int ch)
 {
-	return _cancion[getSize()];
+
+	return _cancion[ch];
+}
+
+int Cancion::getCantNotas()
+{
+	int size = 0;
+	for (std::vector<Nota>& e : _cancion) {
+
+		size += e.size();
+	}
+
+	return size;
 }
 
 

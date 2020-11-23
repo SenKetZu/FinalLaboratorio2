@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animacion.cpp" />
+    <ClCompile Include="Archivo.cpp" />
     <ClCompile Include="Cancion.cpp" />
     <ClCompile Include="Colision.cpp" />
     <ClCompile Include="Joystick.cpp" />
@@ -158,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animacion.h" />
+    <ClInclude Include="Archivo.h" />
     <ClInclude Include="Cancion.h" />
     <ClInclude Include="Colision.h" />
     <ClInclude Include="Joystick.h" />

@@ -16,7 +16,7 @@ private:
 public:
 	Colision();
 	bool isColliding(sf::Sprite& obj);
-	bool isNoteColliding(std::vector<Nota> cancion,int chanel);
+	bool isNoteColliding(std::vector<Nota>& cancion);
 	sf::RectangleShape& getTrast();
 
 };

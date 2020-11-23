@@ -9,6 +9,7 @@ void Gameplay::initSong(){
 
 }
 
+
 void Gameplay::setConfig()
 {
     _cancion.SetCancion("kubaLoveNormal.osu");
@@ -22,7 +23,7 @@ void Gameplay::gameLoop()
     _cancion.getSonido().play();
 
     while (_mostrar.devolver().isOpen()) {
-        if (tic == 61) {
+        if (tic == 60) {
             tic = 0;
         }
 
@@ -43,6 +44,7 @@ void Gameplay::gameLoop()
         _mostrar.dibujar(_trast.getTrast());
         _mostrar.actualizarNotas(_cancion.getCancionNotas());
         _mostrar.mostrarPuntaje();
+
         if (tic > 30) {
             _mostrar.splash();
         }
@@ -61,7 +63,7 @@ void Gameplay::inputs()
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         if (!press[0]) {
             press[0] = true;
-            if (_trast.isNoteColliding(_cancion.getCancionNotas(),0)) {
+            if (_trast.isNoteColliding(_cancion.getNotas(0))){
                 //aca se cambia para sumar puntos
                 _mostrar.actualizarPuntaje();
                 _mostrar.splash(0);
@@ -75,7 +77,8 @@ void Gameplay::inputs()
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {
         if (!press[1]) {
             press[1] = true;
-            if (_trast.isNoteColliding(_cancion.getCancionNotas(), 1)) {
+
+            if (_trast.isNoteColliding(_cancion.getNotas(1))) {
                 //aca se cambia para sumar puntos
                 _mostrar.actualizarPuntaje();
                 _mostrar.splash(1);
@@ -89,7 +92,7 @@ void Gameplay::inputs()
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {
         if (!press[2]) {
             press[2] = true;
-            if (_trast.isNoteColliding(_cancion.getCancionNotas(), 2)) {
+            if (_trast.isNoteColliding(_cancion.getNotas(2))) {
                 //aca se cambia para sumar puntos
                 _mostrar.actualizarPuntaje();
                 _mostrar.splash(2);
@@ -103,7 +106,7 @@ void Gameplay::inputs()
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {
         if (!press[3]) {
             press[3] = true;
-            if (_trast.isNoteColliding(_cancion.getCancionNotas(), 3)) {
+            if (_trast.isNoteColliding(_cancion.getNotas(3))) {
                 //aca se cambia para sumar puntos
                 _mostrar.actualizarPuntaje();
                 _mostrar.splash(3);

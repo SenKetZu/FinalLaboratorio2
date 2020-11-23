@@ -11,7 +11,7 @@
 class Gameplay{
 private:
 	sf::Event _event;
-	Render _mostrar;
+	Render& _mostrar=Render::getInstance();
 	Cancion _cancion;
 	Colision _trast;
 	bool press[4] = { false };

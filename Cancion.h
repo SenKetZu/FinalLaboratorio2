@@ -13,7 +13,8 @@ private:
 	int _offset=-650;
 	float _Dificultad=5;
 	std::vector<Hitpoint> _cancionRaw;
-	std::vector<Nota> _cancion;
+	std::vector<Nota> _notasRojas, _notasVerdes, _notasAzules, _notasNaranjas;
+	std::vector<std::vector<Nota>> _cancion;
 	sf::Music _sonido;
 
 private:
@@ -28,8 +29,9 @@ public:
 	int getOffset();
 	int getSizeRaw();
 	int getSize();
-	Nota getLastNota();
-	std::vector<Nota>& getCancionNotas();
+	std::vector<Nota>& getNotas(int ch);
+	int getCantNotas();
+	std::vector<std::vector<Nota>>& getCancionNotas();
 	
 
 	

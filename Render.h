@@ -10,9 +10,18 @@
 
 class Render{
 private:
-
-	sf::Texture _tx0, _tx1, _tx2, _tx3, _fondoT, _mangoTBLUR, _mangoT,_splashT;
+	//Ventana principal
 	sf::RenderWindow _Ventana;
+	//texturas notas
+	sf::Texture _tx0, _tx1, _tx2, _tx3; 
+
+	//textura fondo
+	sf::Texture _fondoT;
+
+	//texturas otras
+	sf::Texture _mangoTBLUR, _mangoT, _splashT;
+
+	
 	std::vector<Nota> _cancion;
 	sf::Sprite _mangoBLUR, _mango,_splash;
 	sf::RectangleShape _fondo;
@@ -22,17 +31,21 @@ private:
 	bool _seteadas = false, _sp;
 	float localOffset = 527.0f;
 private:
-	
+	Render();
 
 
 public:
 
-	Render();
+	static Render& getInstance() 
+	{ 
+		static Render instancia;
+		return instancia; 
+	};
 
 	void clear();
 	void mostrarFondo();
 	void dibujar(const sf::Drawable& obj);
-	void actualizarNotas(std::vector<Nota>& song);
+	void actualizarNotas(std::vector<std::vector<Nota>>& song);
 	void actualizarPuntaje();
 	void mostrarPuntaje();
 	void splash(int ch);

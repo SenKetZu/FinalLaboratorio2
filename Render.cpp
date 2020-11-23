@@ -20,8 +20,11 @@ Render::Render() :_Ventana(sf::VideoMode(1280, 720), "V011", sf::Style::Default)
 	_fondoT.loadFromFile("Sources\\Fondo-1.jpg");
 	_mangoTBLUR.loadFromFile("Sources\\fondo_mango-recortado.png");
 	_mangoT.loadFromFile("Sources\\todas_la_notas-centrada.png");
-	_fuente.loadFromFile("sources\\Nightmare_Hero_Normal.ttf");
-	
+	_fuente.loadFromFile("sources\\fuentes\\Nightmare_Hero_Normal.ttf");
+
+
+
+
 	_splashT.loadFromFile("sources\\splash.png");
 	// fuente del texto
 	_PuntajeText.setFont(_fuente);
@@ -74,74 +77,78 @@ sf::RenderWindow& Render::devolver()
 	return _Ventana;
 }
 
-void Render::actualizarNotas(std::vector<Nota>& song){
+void Render::actualizarNotas(std::vector<std::vector<Nota>>& song){
 	
 	
-	for (int i = 0; i < song.size();++i) {
-		
-		if (song[i].getAltura() > 720) {
-			song[i].setOffScreen();
+	for (int i = 0; i < 4;++i) {
+		for (int j = 0; j < song[i].size(); ++j) {
+
+			if (song[i][j].getAltura() > 720) {
+				song[i][j].setOffScreen();
+			}
+
+			switch (song[i][j].getChanel())
+			{
+			case 0:
+
+				song[i][j].addAltura().setPosition(localOffset);
+
+				if (!_seteadas) {
+
+					song[i][j].setTexture(_tx0).centrar().setScale(.25, .25);
+
+
+				}
+				break;
+
+			case 1:
+
+				song[i][j].addAltura().setPosition(localOffset + 64);
+
+				if (!_seteadas) {
+
+					song[i][j].setTexture(_tx1).centrar().setScale(.25, .25);
+
+				}
+				break;
+
+			case 2:
+
+				song[i][j].addAltura().setPosition(localOffset + 130.5);
+
+				if (!_seteadas) {
+
+					song[i][j].setTexture(_tx2).centrar().setScale(.25, .25);
+
+				}
+
+				break;
+
+			case 3:
+
+				song[i][j].addAltura().setPosition(localOffset + 191);
+
+				if (!_seteadas) {
+
+					song[i][j].setTexture(_tx3).centrar().setScale(.25, .25);
+
+				}
+				break;
+
+			default:
+				break;
+			}
+
+			if (song[i][j].getAltura() > -30 && !song[i][j].getOnScreen()) {
+				song[i][j].setOnScreen();
+
+			}
+			if (song[i][j].getOnScreen()) {
+				_Ventana.draw(song[i][j].devolver());
+			}
+
 		}
-
-		switch (song[i].getChanel())
-		{
-		case 0:
-			
-			song[i].addAltura().setPosition(localOffset);
-
-			if (!_seteadas) {
-
-				song[i].setTexture(_tx0).centrar().setScale(.25, .25);
 	
-				
-			}
-			break;
-
-		case 1:
-
-			song[i].addAltura().setPosition(localOffset + 64);
-
-			if (!_seteadas) {
-
-				song[i].setTexture(_tx1).centrar().setScale(.25, .25);
-			
-			}
-			break;
-
-		case 2:
-
-			song[i].addAltura().setPosition(localOffset + 130.5);
-
-			if (!_seteadas) {
-
-				song[i].setTexture(_tx2).centrar().setScale(.25, .25);
-				
-			}
-
-			break;
-
-		case 3:
-
-			song[i].addAltura().setPosition(localOffset + 191);
-
-			if (!_seteadas) {
-
-				song[i].setTexture(_tx3).centrar().setScale(.25, .25);
-				
-			}
-			break;
-
-		default:
-			break;
-		}
-
-		if (song[i].getAltura()>-30&&!song[i].getOnScreen()) {
-			song[i].setOnScreen();
-			
-		}
-		if (song[i].getOnScreen()) {
-			_Ventana.draw(song[i].devolver());
-		}
 	}
 	_seteadas = true;
 }
