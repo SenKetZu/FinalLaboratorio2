@@ -4,23 +4,33 @@
 
 
 
-
-
-std::vector<std::string> Archivo::devolverLista()
+Archivo::Archivo():directorio(opendir("Sources\\songs"))
 {
 
-	if ((directorio = opendir("Sources\\songs")) != NULL) {
-		/* print all the files and directories within directory */
-		while ((cancion = readdir(directorio)) != NULL) {
-			if (*cancion->d_name != '.' && *cancion->d_name != '..')
-				listaCanciones.push_back(cancion->d_name);
-			
-		}
-		closedir(directorio);
-	}
+}
+
+
+Archivo& Archivo::cargarLista()
+{
+	std::string aux;
 	
-	for (auto x : listaCanciones) {
+	// mustra todos los archivos y directorios
+
+	while ((cancion = readdir(directorio)) != NULL) {
+		if (*cancion->d_name != '.' && *cancion->d_name != '..') {
+			(void)strtok(cancion->d_name, " ");
+			aux = strtok(NULL, "");
+
+			listaCanciones.push_back(aux);
+		}
+				
+			
+	}
+	closedir(directorio);
+	
+	
+	for ( std::string x : listaCanciones) {
 		std::cout << x << std::endl;
 	}
-	return listaCanciones;
+	return *this;
 }

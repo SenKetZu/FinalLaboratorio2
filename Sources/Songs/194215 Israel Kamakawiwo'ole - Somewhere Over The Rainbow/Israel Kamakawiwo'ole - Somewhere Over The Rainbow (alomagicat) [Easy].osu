@@ -1,0 +1,71 @@
+osu file format v13
+
+[General]
+AudioFilename: 10somewhereovertherainbow.mp3
+AudioLeadIn: 0
+PreviewTime: -1
+Countdown: 1
+SampleSet: None
+StackLeniency: 0.7
+Mode: 0
+LetterboxInBreaks: 1
+WidescreenStoryboard: 0
+
+[Editor]
+DistanceSpacing: 0.8
+BeatDivisor: 1
+GridSize: 32
+TimelineZoom: 0.6
+
+[Metadata]
+Title:Somewhere Over The Rainbow
+TitleUnicode:Somewhere Over The Rainbow
+Artist:Israel Kamakawiwo'ole
+ArtistUnicode:Israel Kamakawiwo'ole
+Creator:alomagicat
+Version:Easy
+Source:Some guy.
+Tags:#SoKawaiii
+BeatmapID:461316
+BeatmapSetID:194215
+
+[Difficulty]
+HPDrainRate:3
+CircleSize:4
+OverallDifficulty:3
+ApproachRate:3
+SliderMultiplier:1
+SliderTickRate:1
+
+[Events]
+//Background and Video events
+//Break Periods
+//Storyboard Layer 0 (Background)
+//Storyboard Layer 1 (Fail)
+//Storyboard Layer 2 (Pass)
+//Storyboard Layer 3 (Foreground)
+//Storyboard Sound Samples
+//Background Colour Transformations
+3,100,163,162,255
+
+[TimingPoints]
+0,500,4,2,0,100,1,0
+
+
+[HitObjects]
+256,192,0,12,0,8000,0:0:0:0:
+76,211,10500,6,0,L|432:67,1,300,0|0,0:0|0:0,0:0:0:0:
+101,292,13000,1,0,0:0:0:0:
+101,291,13500,2,0,B|456:113|414:184,2,300,0|0|0,0:0|0:0|0:0,0:0:0:0:
+160,307,17500,1,0,0:0:0:0:
+160,306,18500,2,0,B|479:130|501:172|474:129,2,300,0|0|0,0:0|0:0|0:0,0:0:0:0:
+427,268,22500,1,0,0:0:0:0:
+432,185,23000,1,0,0:0:0:0:
+375,119,23500,1,0,0:0:0:0:
+291,94,24000,1,0,0:0:0:0:
+193,101,24500,1,0,0:0:0:0:
+138,167,25000,1,0,0:0:0:0:
+141,252,25500,1,0,0:0:0:0:
+206,301,26000,1,0,0:0:0:0:
+256,192,26500,12,0,289465,0:0:0:0:
+256,192,289500,12,0,289465,0:0:0:0:

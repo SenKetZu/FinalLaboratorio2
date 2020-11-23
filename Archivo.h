@@ -12,10 +12,17 @@ private:
 
 private:
 	Archivo();
-public:
-	static Archivo& getInstance() { static Archivo instancia; return instancia; }
 
-	std::vector<std::string> devolverLista();
+public:
+
+	static Archivo& getInstance()
+	{
+		static Archivo instancia;
+		return instancia;
+	}
+
+	Archivo& cargarLista();
+
 
 
 };

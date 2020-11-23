@@ -40,7 +40,7 @@ public:
 	{ 
 		static Render instancia;
 		return instancia; 
-	};
+	}
 
 	void clear();
 	void mostrarFondo();
