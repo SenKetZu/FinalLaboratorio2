@@ -9,16 +9,15 @@
 
 
 int main(){
-  
-    
-    
-    Archivo::getInstance().cargarLista();
+    Render::getInstance();
 
 
+    Menu obj;
+    obj.menuOption();
 
-    
 
-  
+    Gameplay obj2;
+    obj2.initSong();
     return 0;
 
 }

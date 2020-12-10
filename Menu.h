@@ -1,16 +1,32 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#define CantidadOpciones 4
+#include <vector>
+#include "Render.h"
+#include "TextPress.h"
 
+enum Elementos {
+	Play,
+	Score,
+	Config,
+	Exit
+
+};
 class Menu {
-private:
 
-	sf::Text elementos[CantidadOpciones];
-	sf::Font letra;
+private:
+	int _separacion = 100,_offSet=150;
+	int _pressedElement = -1;
+	std::string _txtElements[4] = {"play","scores","config","exit"};
+	Elementos _ele;
+	sf::Font _letra=Render::getInstance().getFont();
+	std::vector<TextPress>_elementos;
+
+
+
 
 public:
 	Menu();
 
-
+	void menuOption();
 
 };

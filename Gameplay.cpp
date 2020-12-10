@@ -6,67 +6,54 @@ void Gameplay::initSong(){
     //ciclo donde se ejecutara la cancion
     setConfig();
     gameLoop();
-
 }
-
 
 void Gameplay::setConfig()
 {
-    _cancion.SetCancion("kubaLoveNormal.osu");
-    
+    _cancion.SetCancion("Kuba Oms - My Love (W h i t e) [Normal].osu");   
+    _cancion.getSonido().setVolume(15);
+    _cancion.getSonido().play();
 }
 
 void Gameplay::gameLoop()
 {
-    int tic=0;
-    _cancion.getSonido().setVolume(0);
-    _cancion.getSonido().play();
+    _tic = 0;   
 
-    while (_mostrar.devolver().isOpen()) {
-        if (tic == 60) {
-            tic = 0;
+    while (Render::getInstance().devolver().isOpen()) {
+        
+        if (_tic == 61) {
+            _tic = 0;
         }
 
-        while (_mostrar.devolver().pollEvent(_event)) {
+        while (Render::getInstance().devolver().pollEvent(_event)) {
             if (_event.type == sf::Event::Closed) {
-                _mostrar.devolver().close();
+                Render::getInstance().devolver().close();
             }
         }
         
-
-        inputs();
-        
-        
+        //entrada
+        inputs();   
 
         //dibujado
-        _mostrar.clear();
-        _mostrar.mostrarFondo();
-        _mostrar.dibujar(_trast.getTrast());
-        _mostrar.actualizarNotas(_cancion.getCancionNotas());
-        _mostrar.mostrarPuntaje();
-
-        if (tic > 30) {
-            _mostrar.splash();
-        }
-        
-
-        _mostrar.devolver().display();
+        show();
 
 
-        ++tic;
+        ++_tic;
     }
 
 }
 
 void Gameplay::inputs()
 {
+
+    //tecla azul
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         if (!press[0]) {
             press[0] = true;
             if (_trast.isNoteColliding(_cancion.getNotas(0))){
                 //aca se cambia para sumar puntos
-                _mostrar.actualizarPuntaje();
-                _mostrar.splash(0);
+                Render::getInstance().actualizarPuntaje();
+                
                 
             }
         }
@@ -74,14 +61,18 @@ void Gameplay::inputs()
     else {
         press[0] = false;
     }
+
+
+
+    //tecla verde
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) {
         if (!press[1]) {
             press[1] = true;
 
             if (_trast.isNoteColliding(_cancion.getNotas(1))) {
                 //aca se cambia para sumar puntos
-                _mostrar.actualizarPuntaje();
-                _mostrar.splash(1);
+                Render::getInstance().actualizarPuntaje();
+                
                
             }
         }
@@ -89,13 +80,16 @@ void Gameplay::inputs()
     else {
         press[1] = false;
     }
+
+
+    //tecla rojo
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {
         if (!press[2]) {
             press[2] = true;
             if (_trast.isNoteColliding(_cancion.getNotas(2))) {
                 //aca se cambia para sumar puntos
-                _mostrar.actualizarPuntaje();
-                _mostrar.splash(2);
+                Render::getInstance().actualizarPuntaje();
+                
                 
             }
         }
@@ -103,13 +97,16 @@ void Gameplay::inputs()
     else {
         press[2] = false;
     }
+
+
+    //tecla naranja
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {
         if (!press[3]) {
             press[3] = true;
             if (_trast.isNoteColliding(_cancion.getNotas(3))) {
                 //aca se cambia para sumar puntos
-                _mostrar.actualizarPuntaje();
-                _mostrar.splash(3);
+                Render::getInstance().actualizarPuntaje();
+                
                 
             }
         }
@@ -117,6 +114,20 @@ void Gameplay::inputs()
     else {
         press[3] = false;
     }
+}
+
+void Gameplay::show()
+{
+    Render::getInstance().clear();
+    Render::getInstance().mostrarFondo();
+    Render::getInstance().dibujar(_trast.getTrast());
+    Render::getInstance().actualizarNotas(_cancion.getCancionNotas());
+    Render::getInstance().mostrarPuntaje();
+
+
+
+
+    Render::getInstance().devolver().display();
 }
 
 

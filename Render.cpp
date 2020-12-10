@@ -37,16 +37,18 @@ Render::Render() :_Ventana(sf::VideoMode(1280, 720), "V011", sf::Style::Default)
 	
 	_splash.setTexture(_splashT);
 	_splash.setScale(.15, .15);
+
 }
 
 
 
-void Render::mostrarFondo()
+Render& Render::mostrarFondo()
 {
 	
 
 	
 	_fondo.setTexture(&_fondoT);
+	
 	_Ventana.draw(_fondo);
 	
 	_mangoBLUR.setTexture(_mangoTBLUR);
@@ -60,24 +62,33 @@ void Render::mostrarFondo()
 	_mango.setPosition(500,20);
 	_Ventana.draw(_mango);
 	
+	return *this;
 }
 
-void Render::dibujar(const sf::Drawable& obj) {
+Render& Render::dibujar(const sf::Drawable& obj) {
 	_Ventana.draw(obj);
+	return *this;
 }
 
 
-void Render::clear()
+Render& Render::clear()
 {
 	_Ventana.clear();
+	return *this;
 }
 
 sf::RenderWindow& Render::devolver()
 {
 	return _Ventana;
+
 }
 
-void Render::actualizarNotas(std::vector<std::vector<Nota>>& song){
+sf::Font& Render::getFont()
+{
+	return _fuente;
+}
+
+Render& Render::actualizarNotas(std::vector<std::vector<Nota>>& song){
 	
 	
 	for (int i = 0; i < 4;++i) {
@@ -151,53 +162,22 @@ void Render::actualizarNotas(std::vector<std::vector<Nota>>& song){
 	
 	}
 	_seteadas = true;
+	return *this;
 }
 
-void Render::actualizarPuntaje()
+Render& Render::actualizarPuntaje()
 {
 	++_puntajeInt;
 	_PuntajeText.setString(std::to_string(_puntajeInt)); 
+	return *this;
 }
 
-void Render::mostrarPuntaje()
+Render& Render::mostrarPuntaje()
 {
 	_Ventana.draw(_PuntajeText);
+	return *this;
 }
 
-void Render::splash(int ch)
-{
-	switch (ch)
-	{
-	case 0:
-		_splash.setPosition({ localOffset-35 ,645 });
-		_sp = true;
-		break;
-	case 1:
-		_splash.setPosition({ localOffset+64-35 ,645 });
-		_sp = true;
-		break;
-	case 2:
-		_splash.setPosition({ localOffset+130-35 ,645 });
-		_sp = true;
-		break;
-	case 3:
-		_splash.setPosition({ localOffset+191-35 ,645 });
-		_sp = true;
-		break;
 
-
-	default:
-		break;
-	}
-	_Ventana.draw(_splash);
-}
-
-void Render::splash()
-{
-	if (_sp) {
-		_Ventana.draw(_splash);
-	}
-	
-}
 
 

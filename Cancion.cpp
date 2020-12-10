@@ -23,7 +23,7 @@ void Cancion::getCancion() {
 
 			nota._pos = (atoi(aux) * 4) / 512;
 
-			strtok(NULL, ",");
+			(void)strtok(NULL, ",");
 			aux = strtok(NULL, ",");
 
 
@@ -66,6 +66,7 @@ void Cancion::fillCancion()
 			break;
 		}
 	}
+
 	_cancion.push_back(_notasAzules);
 	_cancion.push_back(_notasVerdes);
 	_cancion.push_back(_notasRojas);
@@ -95,7 +96,7 @@ int Cancion::getOffset()
 
 //public
 void Cancion::SetCancion(const char* cancionName){
-	char Dir[50] = "Sources\\Songs\\";
+	char Dir[100] = "Sources\\Songs\\163112 Kuba Oms - My Love\\";
 	_P = fopen(strcat(Dir,cancionName), "r");
 
 	if (_P == NULL) { std::cout << "failLoadFile"; }
