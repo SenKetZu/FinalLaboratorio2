@@ -1,6 +1,9 @@
 #include "Gameplay.h"
 
 
+Gameplay::Gameplay() {
+
+}
 
 void Gameplay::initSong(){
     //ciclo donde se ejecutara la cancion

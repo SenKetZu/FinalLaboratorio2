@@ -5,3 +5,13 @@ struct Hitpoint {
 	float _time;
 
 };
+
+enum Elementos {
+
+	Play,
+	Score,
+	Config,
+	Exit,
+	NONE
+
+};

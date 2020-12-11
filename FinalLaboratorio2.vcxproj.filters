@@ -51,6 +51,9 @@
     <ClCompile Include="TextPress.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="SelectorCancion.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animacion.h">
@@ -87,6 +90,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="TextPress.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectorCancion.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

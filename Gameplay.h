@@ -18,9 +18,15 @@ private:
 	int _tic = 0;
 
 
-
+private:
+	
+	Gameplay();
 public:
-
+	static Gameplay& getInstance()
+	{
+		static Gameplay instancia;
+		return instancia;
+	}
 	 void initSong();
 	 void setConfig();
 	 void gameLoop();

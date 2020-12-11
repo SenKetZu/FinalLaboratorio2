@@ -156,6 +156,7 @@
     <ClCompile Include="Nota.cpp" />
     <ClCompile Include="Pressable.cpp" />
     <ClCompile Include="Render.cpp" />
+    <ClCompile Include="SelectorCancion.cpp" />
     <ClCompile Include="TextPress.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +170,7 @@
     <ClInclude Include="Nota.h" />
     <ClInclude Include="Pressable.h" />
     <ClInclude Include="Render.h" />
+    <ClInclude Include="SelectorCancion.h" />
     <ClInclude Include="Structs.h" />
     <ClInclude Include="TextPress.h" />
   </ItemGroup>

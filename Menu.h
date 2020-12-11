@@ -4,22 +4,18 @@
 #include "Render.h"
 #include "TextPress.h"
 
-enum Elementos {
-	Play,
-	Score,
-	Config,
-	Exit
 
-};
 class Menu {
 
 private:
-	int _separacion = 100,_offSet=150;
+	int _separacion = 150,_offSet=120;
 	int _pressedElement = -1;
-	std::string _txtElements[4] = {"play","scores","config","exit"};
+	std::string _txtElements[4] = {"Play","Scores","Config","Exit"};
 	Elementos _ele;
 	sf::Font _letra=Render::getInstance().getFont();
 	std::vector<TextPress>_elementos;
+	sf::RectangleShape _fondo;
+	sf::Texture _texturaFondo;
 
 
 
