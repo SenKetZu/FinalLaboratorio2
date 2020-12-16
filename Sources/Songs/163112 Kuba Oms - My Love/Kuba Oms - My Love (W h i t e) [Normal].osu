@@ -1,7 +1,7 @@
 osu file format v14
 
 [General]
-AudioFilename: My Love.mp3
+AudioFilename: My Love.wav
 AudioLeadIn: 500
 PreviewTime: 53498
 Countdown: 0

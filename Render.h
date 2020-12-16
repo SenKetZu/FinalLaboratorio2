@@ -31,6 +31,8 @@ private:
 	int _puntajeInt = 0;
 	bool _seteadas = false, _sp;
 	float localOffset = 527.0f;
+
+	sf::Event _event;
 private:
 	Render();
 
@@ -46,9 +48,15 @@ public:
 	Render& clear();
 	Render& mostrarFondo();
 	Render& dibujar(const sf::Drawable& obj);
+	Render& dibujar(std::vector<sf::Drawable*> obj);
 	Render& actualizarNotas(std::vector<std::vector<Nota>>& song);
 	Render& actualizarPuntaje();
 	Render& mostrarPuntaje();
+	Render& display();
+	sf::Vector2f getSize();
+	void handleEvents();
+	bool isOpen();
+	void close();
 
 	sf::RenderWindow& devolver();
 	sf::Font& getFont();

@@ -5,7 +5,7 @@
 #define EN_PRUEBA false
 
 
-Archivo::Archivo():_directorio(opendir(_dir.data()))
+Archivo::Archivo():_directorio(opendir(_directorioDeCanciones.c_str()))
 {
 
 }
@@ -14,11 +14,11 @@ Archivo::Archivo():_directorio(opendir(_dir.data()))
 Archivo& Archivo::loadLista()
 {
 	std::string aux;
-	std::vector<std::string>locales;
+	
 
 	
 	// mustra todos los archivos y directorios
-	
+	//rewinddir(_directorio);
 	while ((_cancion = readdir(_directorio)) != NULL) {
 		if (*_cancion->d_name != '.' && *_cancion->d_name != '..') {
 
@@ -35,7 +35,7 @@ Archivo& Archivo::loadLista()
 			}
 			else
 			{
-				locales.push_back(_cancion->d_name);
+				_ElementosDeLaCancionSeleccionada.push_back(_cancion->d_name);
 			}
 			
 
@@ -44,7 +44,7 @@ Archivo& Archivo::loadLista()
 				
 			
 	}
-	closedir(_directorio);
+	
 	
 	//mostrar en depuracion
 	if (EN_PRUEBA) {
@@ -60,7 +60,7 @@ Archivo& Archivo::loadLista()
 		
 	} 
 	if (true) {
-		for (std::string y : locales) {
+		for (std::string y : _ElementosDeLaCancionSeleccionada) {
 			std::cout << y << std::endl;
 		}
 
@@ -72,12 +72,39 @@ Archivo& Archivo::loadLista()
 
 Archivo& Archivo::selectCancion(int pos)
 {
-	_dir += _listaCancionesRaw[pos];
-	opendir(_dir.data());
+	_queCancionSelecciono = pos;
+	_directorioDeCanciones += _listaCancionesRaw[pos];
+	_directorio=opendir(_directorioDeCanciones.c_str());
 	_cancionSeleccionada = true;
 
-
+	loadLista();
 
 
 	return *this;
+}
+
+std::string Archivo::getDirectorioCancion()
+{
+
+	return _listaCancionesRaw[_queCancionSelecciono];
+}
+
+std::string Archivo::getNombreCancionOSU()
+{
+	size_t pos = 0;
+	char aux[200];
+	for (std::string &str:_ElementosDeLaCancionSeleccionada) {
+		std::cout << str << std::endl;
+		
+		pos = str.find(".osu");
+		if ( pos != std::string::npos) {
+			return str;
+		}
+	}
+	//std::cout << aux << "<---------" << std::endl;
+}
+
+void Archivo::cerrarDirectorio()
+{
+	closedir(_directorio);
 }

@@ -11,7 +11,7 @@ private:
 	int _separacion = 150,_offSet=120;
 	int _pressedElement = -1;
 	std::string _txtElements[4] = {"Play","Scores","Config","Exit"};
-	Elementos _ele;
+	Elementos _ele=Elementos::NONE;
 	sf::Font _letra=Render::getInstance().getFont();
 	std::vector<TextPress>_elementos;
 	sf::RectangleShape _fondo;
@@ -23,6 +23,6 @@ private:
 public:
 	Menu();
 
-	void menuOption();
+	void menuLoop();
 
 };

@@ -1,7 +1,7 @@
 osu file format v13
 
 [General]
-AudioFilename: 10somewhereovertherainbow.mp3
+AudioFilename: 10somewhereovertherainbow.wav
 AudioLeadIn: 0
 PreviewTime: -1
 Countdown: 1

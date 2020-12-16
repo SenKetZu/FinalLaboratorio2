@@ -1,21 +1,58 @@
 #include "Cancion.h"
 #include <iostream>
+#include "Archivo.h"
+
+
+Cancion::Cancion()
+{
+
+}
+
 
 //private
-void Cancion::getCancion() {
+char* Cancion::getCancion() {
 	
 	Hitpoint nota;
 	char buffer[200];
-	char* aux;
-	bool hitpoins = false;
+	char* aux, nombreWav[200];
+	bool hitpoins = false,general =false ;
 
 	while (fgets(buffer, 200, _P) != NULL) {
+
+
 
 		if (!strcmp(buffer, "[HitObjects]\n")) {
 			hitpoins = true;
 
 			continue;
 		}
+		if (!strcmp(buffer, "[General]\n")) {
+			general = true;
+
+			continue;
+		}
+
+
+		if (general) {
+
+			(void)strtok(buffer, ":");
+
+			strcpy(nombreWav, strtok(NULL, "\n"));
+			for (int i = 0; i < strlen(nombreWav);++i) {
+				if (i != 0) {
+					nombreWav[i - 1] = nombreWav[i];
+				}
+				if (i == strlen(nombreWav) - 1) {
+					nombreWav[i] = '\0';
+				}
+			}
+			std::cout << nombreWav << "<---"<<std::endl;
+
+
+			general = false;
+		}
+
+
 
 		if (hitpoins) {
 
@@ -35,7 +72,11 @@ void Cancion::getCancion() {
 			
 		}
 	}
+
 	fclose(_P);
+	
+	
+	return nombreWav;
 }
 
 void Cancion::fillCancion()
@@ -95,17 +136,26 @@ int Cancion::getOffset()
 }
 
 //public
-void Cancion::SetCancion(const char* cancionName){
-	char Dir[100] = "Sources\\Songs\\163112 Kuba Oms - My Love\\";
-	_P = fopen(strcat(Dir,cancionName), "r");
+void Cancion::SetCancionOsu(){
+
+
+	char Dir[200] = "Sources\\Songs\\";
+	char Dir2[200];
+	strcat(Dir, Archivo::getInstance().getDirectorioCancion().c_str());
+	strcat(Dir, "\\");
+	strcpy(Dir2, Dir);
+	strcat(Dir, Archivo::getInstance().getNombreCancionOSU().c_str());
+	_P = fopen(Dir, "r");
 
 	if (_P == NULL) { std::cout << "failLoadFile"; }
 
-	getCancion();
+
+	strcat(Dir2, getCancion());
+	
 	fillCancion();
 
-	_sonido.openFromFile("Sources\\Songs\\MyLove.wav");
-	_sonido.setVolume(0);
+	_sonido.openFromFile(Dir2);
+	
 }
 
 std::vector<std::vector<Nota>>& Cancion::getCancionNotas()

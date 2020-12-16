@@ -1,7 +1,7 @@
 osu file format v12
 
 [General]
-AudioFilename: tearrain.mp3
+AudioFilename: tearrain.wav
 AudioLeadIn: 1500
 PreviewTime: 195852
 Countdown: 0

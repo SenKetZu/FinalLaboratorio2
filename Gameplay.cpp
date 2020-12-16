@@ -13,7 +13,7 @@ void Gameplay::initSong(){
 
 void Gameplay::setConfig()
 {
-    _cancion.SetCancion("Kuba Oms - My Love (W h i t e) [Normal].osu");   
+    _cancion.SetCancionOsu();   
     _cancion.getSonido().setVolume(15);
     _cancion.getSonido().play();
 }

@@ -43,10 +43,7 @@ Render::Render() :_Ventana(sf::VideoMode(1280, 720), "V011", sf::Style::Default)
 
 
 Render& Render::mostrarFondo()
-{
-	
-
-	
+{	
 	_fondo.setTexture(&_fondoT);
 	
 	_Ventana.draw(_fondo);
@@ -70,10 +67,20 @@ Render& Render::dibujar(const sf::Drawable& obj) {
 	return *this;
 }
 
+Render& Render::dibujar(std::vector<sf::Drawable*> obj)
+{
+	for (auto  *element:obj) {
+		
+		_Ventana.draw(*element);
+	}
+	return *this;
+}
+
 
 Render& Render::clear()
 {
 	_Ventana.clear();
+
 	return *this;
 }
 
@@ -176,6 +183,44 @@ Render& Render::mostrarPuntaje()
 {
 	_Ventana.draw(_PuntajeText);
 	return *this;
+}
+
+Render& Render::display()
+{
+	_Ventana.display();
+	return *this;
+}
+
+sf::Vector2f Render::getSize()
+{
+	return sf::Vector2f(_Ventana.getSize());
+}
+
+void Render::handleEvents()
+{
+	while (_Ventana.pollEvent(_event)) {
+		if (_event.type == sf::Event::Closed) {
+			Render::getInstance().devolver().close();
+		}
+	}
+
+
+
+
+
+
+}
+
+bool Render::isOpen()
+{
+
+	return _Ventana.isOpen();
+
+}
+
+void Render::close()
+{
+	_Ventana.close();
 }
 
 

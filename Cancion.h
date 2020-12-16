@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Audio.hpp>
+
 #include "Structs.h"
 #include "Nota.h"
 #include <vector>
@@ -19,13 +20,14 @@ private:
 
 private:
 
-	void getCancion();
+	char* getCancion();
 	void fillCancion();
 
 public:
+	Cancion();
 	sf::Music& getSonido();
 	void setOffset(int off);
-	void SetCancion(const char* cancionPath);
+	void SetCancionOsu();
 	int getOffset();
 	int getSizeRaw();
 	int getSize();

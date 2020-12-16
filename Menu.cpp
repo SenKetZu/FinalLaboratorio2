@@ -3,7 +3,9 @@
 #include <iostream>
 #include "Structs.h"
 #include "SFML/Graphics.hpp"
+#include "SelectorCancion.h"
 #include "Gameplay.h"
+
 
 Menu::Menu()
 {
@@ -16,7 +18,7 @@ Menu::Menu()
 		_elementos.push_back(aux);
 	}
 
-	for (auto& elemento : _elementos)
+	for (TextPress& elemento : _elementos)
 	{
 		elemento.setCaracteristicas(70,sf::Color::Transparent,sf::Color(12, 183, 242),1, _offSet);
 		
@@ -26,39 +28,44 @@ Menu::Menu()
 
 }
 
-void Menu::menuOption()
+void Menu::menuLoop()
 {
-	sf::Event _event;
 
-	while(Render::getInstance().devolver().isOpen()){
+	while(_ele==Elementos::NONE){
 		
-		while (Render::getInstance().devolver().pollEvent(_event)) {
-			if (_event.type == sf::Event::Closed) {
-				Render::getInstance().devolver().close();
-			}
-		}
+		Render::getInstance().handleEvents();
+
 		Render::getInstance().dibujar(_fondo);
-		for (auto& el : _elementos) {
+		for (TextPress& el : _elementos) {
 			
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-				switch (el.check())
+				_ele = el.check();
+				switch (_ele)
 				{
-				case Play:
-					Gameplay::getInstance().initSong();
+				case Play:	
+				{
+				SelectorCancion obj;
+				obj.selectorLoop();
+				Gameplay::getInstance().initSong();
+				}					
 					break;
+
 				case Score:
 					break;
-				case Config:
+
+				case Config:			
 					break;
-				case Exit:					
-					Render::getInstance().devolver().close();
+
+				case Exit:	
+					Render::getInstance().close();
 					break;
+
 				default:
 					break;
 				}
 			}			
 
-			if (el.check()>=0&& el.check()<=3) {
+			if (el.check()!=Elementos::NONE) {
 				el.highlight(true);
 				if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 					std::cout << "seleccionado" << std::endl;
@@ -71,7 +78,7 @@ void Menu::menuOption()
 			Render::getInstance().dibujar(el.getText());
 		}
 		
-		Render::getInstance().devolver().display();
+		Render::getInstance().display();
 
 	}
 }

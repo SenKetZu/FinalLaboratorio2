@@ -149,6 +149,7 @@
     <ClCompile Include="Archivo.cpp" />
     <ClCompile Include="Cancion.cpp" />
     <ClCompile Include="Colision.cpp" />
+    <ClCompile Include="ElementoCancion.cpp" />
     <ClCompile Include="Joystick.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Gameplay.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Archivo.h" />
     <ClInclude Include="Cancion.h" />
     <ClInclude Include="Colision.h" />
+    <ClInclude Include="ElementoCancion.h" />
     <ClInclude Include="Joystick.h" />
     <ClInclude Include="Gameplay.h" />
     <ClInclude Include="Menu.h" />
