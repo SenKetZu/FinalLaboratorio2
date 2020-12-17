@@ -5,6 +5,7 @@
 #include "SFML/Graphics.hpp"
 #include "SelectorCancion.h"
 #include "Gameplay.h"
+#include "Archivo.h"
 
 
 Menu::Menu()
@@ -47,6 +48,10 @@ void Menu::menuLoop()
 				SelectorCancion obj;
 				obj.selectorLoop();
 				Gameplay::getInstance().initSong();
+				Archivo::getInstance().resetArchivo();
+				Render::getInstance().resetPuntaje();
+				_ele = NONE;
+				
 				}					
 					break;
 

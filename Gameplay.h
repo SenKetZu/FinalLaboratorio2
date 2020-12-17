@@ -6,12 +6,18 @@
 #include "Cancion.h"
 #include "Render.h"
 #include "Colision.h"
-
+#include "Structs.h"
+#include "ElementoConTexto.h"
 
 class Gameplay{
 private:
-	sf::Event _event;
-	
+	enum ESTADOSJUEGO {
+		Jugando,
+		Pausa,
+		Terminado
+	};
+	ESTADOSJUEGO _estadoActual;
+	std::vector<KEYS> _teclaPulsada;
 	Cancion _cancion;
 	Colision _trast;
 	bool press[4] = { false };
@@ -21,17 +27,20 @@ private:
 private:
 	
 	Gameplay();
+	void pause();
+	bool check(KEYS tecla);
 public:
 	static Gameplay& getInstance()
 	{
 		static Gameplay instancia;
 		return instancia;
 	}
+
 	 void initSong();
 	 void setConfig();
 	 void gameLoop();
 	 void inputs();
 	 void show();
-
+	 void showMenuPause(std::vector<ElementoConTexto>& ele, sf::RectangleShape pauseBackground);
 };
 

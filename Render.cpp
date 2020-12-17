@@ -6,7 +6,7 @@
 
 
 
-Render::Render() :_Ventana(sf::VideoMode(1280, 720), "V011", sf::Style::Default)
+Render::Render() :_Ventana(sf::VideoMode(1280, 720), "Guitar Effect", sf::Style::Default)
 { 
 	_Ventana.setFramerateLimit(60);
 	_fondo.setSize((sf::Vector2f(1280, 720)));
@@ -221,6 +221,12 @@ bool Render::isOpen()
 void Render::close()
 {
 	_Ventana.close();
+}
+
+void Render::resetPuntaje()
+{
+	_seteadas = false;
+	_puntajeInt = 0;
 }
 
 

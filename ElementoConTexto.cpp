@@ -1,6 +1,6 @@
-#include "ElementoCancion.h"
+#include "ElementoConTexto.h"
 #include "Archivo.h"
-ElementoCancion::ElementoCancion()
+ElementoConTexto::ElementoConTexto()
 {
 	
 	_marco.setSize({ 600,70 });
@@ -16,20 +16,25 @@ ElementoCancion::ElementoCancion()
 	_nombrCancion.setCharacterSize(30);
 }
 
-void ElementoCancion::setAltura(float altura)
+ElementoConTexto::ElementoConTexto(std::string text)
+{
+	_nombrCancion.setString(text);
+}
+
+void ElementoConTexto::setAltura(float altura)
 {
 	_altura = altura;
 	_marco.setPosition(Render::getInstance().devolver().getSize().x / 2, altura);
 	_nombrCancion.setPosition(Render::getInstance().devolver().getSize().x / 2, altura);
 }
 
-void ElementoCancion::setNombreCancion(std::string nombre)
+void ElementoConTexto::setNombreCancion(std::string nombre)
 {
 	_nombrCancion.setString(nombre);
 	_nombrCancion.setOrigin(_nombrCancion.getGlobalBounds().width / 2, _nombrCancion.getGlobalBounds().height / 2);
 }
 
-bool ElementoCancion::isOnAltura()
+bool ElementoConTexto::isOnAltura()
 {
 	int alt = Render::getInstance().getSize().y - 100;
 	if (_marco.getPosition().y > alt)
@@ -42,7 +47,7 @@ bool ElementoCancion::isOnAltura()
 	}
 }
 
-std::vector<sf::Drawable*> ElementoCancion::getElements()
+std::vector<sf::Drawable*> ElementoConTexto::getElements()
 {
 	//_elements.clear();
 	_elements.push_back(&_marco);
@@ -51,12 +56,12 @@ std::vector<sf::Drawable*> ElementoCancion::getElements()
 	return _elements;
 }
 
-bool ElementoCancion::isSelected()
+bool ElementoConTexto::isSelected()
 {
 	return _marco.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(Render::getInstance().devolver())));
 }
 
-void ElementoCancion::highlight(bool x)
+void ElementoConTexto::highlight(bool x)
 {
 	if(x)
 	{

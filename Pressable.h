@@ -9,7 +9,7 @@ private:
 	sf::Sprite _nota;
 	float _altura = 0.0f, _speed = 1;
 	int _chanel;
-	bool _isOnScreen = false;
+	bool _isOnScreen = false, _wasPressed=false;
 
 public:
 
@@ -19,7 +19,8 @@ public:
 	virtual bool getOnScreen();
 
 
-	
+	virtual Pressable& presionar();
+	virtual bool isPressed();
 	virtual Pressable& centrar();
 	virtual Pressable& setTexture(sf::Texture& tx);
 	virtual Pressable& setChanel(int ch);

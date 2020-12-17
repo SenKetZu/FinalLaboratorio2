@@ -57,7 +57,7 @@ public:
 	void handleEvents();
 	bool isOpen();
 	void close();
-
+	void resetPuntaje();
 	sf::RenderWindow& devolver();
 	sf::Font& getFont();
 };

@@ -15,3 +15,22 @@ enum Elementos {
 	NONE
 
 };
+
+enum KEYS {
+	Blue,
+	Green,
+	Red,
+	Orange,
+	Pause,
+	NONE_KEY
+
+
+
+
+};
+enum CLICKS {
+	Left,
+	Right,
+	Middle,
+	NONE_CLICKS
+};

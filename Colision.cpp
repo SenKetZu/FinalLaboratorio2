@@ -23,7 +23,8 @@ bool Colision::isNoteColliding(std::vector<Nota>& chanel)
 	
 	for (Nota& x : chanel) {
 		if (x.getOnScreen()) {
-			if (_traste.getGlobalBounds().intersects(x.devolver().getGlobalBounds())) {
+			if (_traste.getGlobalBounds().intersects(x.devolver().getGlobalBounds())&&!x.isPressed()) {
+				x.presionar();
 				return true;
 			}
 		}

@@ -7,6 +7,18 @@
 
 
 
+Pressable& Pressable::presionar()
+{
+	_wasPressed = true;
+	return *this;
+}
+
+bool Pressable::isPressed()
+{
+
+	return _wasPressed;
+}
+
 Pressable& Pressable::centrar()
 {
 	sf::Vector2f tam(_nota.getGlobalBounds().height, _nota.getGlobalBounds().width);

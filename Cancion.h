@@ -25,6 +25,7 @@ private:
 
 public:
 	Cancion();
+	void playMusic(bool y_n);
 	sf::Music& getSonido();
 	void setOffset(int off);
 	void SetCancionOsu();

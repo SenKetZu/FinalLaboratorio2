@@ -3,7 +3,7 @@
 #include "Render.h"
 #include <iostream>
 
-class ElementoCancion
+class ElementoConTexto
 {
 private:
 	sf::RectangleShape _marco;
@@ -12,8 +12,8 @@ private:
 	std::vector<sf::Drawable*> _elements;
 
 public:
-	ElementoCancion();
-
+	ElementoConTexto();
+	ElementoConTexto(std::string text);
 	void setAltura(float altura);
 	void setNombreCancion(std::string nombre);
 	bool isOnAltura();

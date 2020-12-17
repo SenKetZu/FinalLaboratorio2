@@ -37,7 +37,7 @@ public:
 	std::string getNombreCancionOSU();
 	std::vector<Hitpoint> getCancion() { return _cancionHits; }
 	std::vector<std::string> getListaNombres() { return _listaCancionesClean; }
-
+	void resetArchivo();
 	void cerrarDirectorio();
 };
 

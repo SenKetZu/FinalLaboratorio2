@@ -13,12 +13,13 @@ Archivo::Archivo():_directorio(opendir(_directorioDeCanciones.c_str()))
 
 Archivo& Archivo::loadLista()
 {
+	_directorio = opendir(_directorioDeCanciones.c_str());
 	std::string aux;
 	
 
 	
 	// mustra todos los archivos y directorios
-	//rewinddir(_directorio);
+	rewinddir(_directorio);
 	while ((_cancion = readdir(_directorio)) != NULL) {
 		if (*_cancion->d_name != '.' && *_cancion->d_name != '..') {
 
@@ -30,7 +31,7 @@ Archivo& Archivo::loadLista()
 				(void)strtok(_cancion->d_name, " ");
 
 
-				aux = strtok(NULL, "\n");
+				aux = std::string(strtok(NULL, "\n"));
 				_listaCancionesClean.push_back(aux);
 			}
 			else
@@ -59,13 +60,14 @@ Archivo& Archivo::loadLista()
 		}
 		
 	} 
-	if (true) {
+	if (false) {
 		for (std::string y : _ElementosDeLaCancionSeleccionada) {
 			std::cout << y << std::endl;
 		}
 
 	}
 	return *this;
+	closedir(_directorio);
 }
 
 
@@ -102,6 +104,16 @@ std::string Archivo::getNombreCancionOSU()
 		}
 	}
 	//std::cout << aux << "<---------" << std::endl;
+}
+
+void Archivo::resetArchivo()
+{
+	_cancionSeleccionada = false;
+	_queCancionSelecciono = 0;
+	_directorioDeCanciones = "Sources\\songs\\";
+	_listaCancionesClean.clear();
+	_listaCancionesRaw.clear();
+	_ElementosDeLaCancionSeleccionada.clear();
 }
 
 void Archivo::cerrarDirectorio()

@@ -8,6 +8,19 @@ Cancion::Cancion()
 
 }
 
+void Cancion::playMusic(bool y_n)
+{
+	if(y_n)
+	{
+		_sonido.play();
+	}
+	else
+	{
+		_sonido.pause();
+	}
+	
+}
+
 
 //private
 char* Cancion::getCancion() {
@@ -81,7 +94,7 @@ char* Cancion::getCancion() {
 
 void Cancion::fillCancion()
 {
-	
+	_cancion.clear();
 	for (Hitpoint nota:_cancionRaw) {
 
 		Nota _nota;
@@ -138,8 +151,8 @@ int Cancion::getOffset()
 //public
 void Cancion::SetCancionOsu(){
 
-
-	char Dir[200] = "Sources\\Songs\\";
+	
+	char Dir[500] = "Sources\\Songs\\";
 	char Dir2[200];
 	strcat(Dir, Archivo::getInstance().getDirectorioCancion().c_str());
 	strcat(Dir, "\\");

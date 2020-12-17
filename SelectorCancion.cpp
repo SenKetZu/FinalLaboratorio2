@@ -1,5 +1,6 @@
 #include "SelectorCancion.h"
 #include "Archivo.h"
+#include "Joystick.h"
 
 
 SelectorCancion::SelectorCancion():_flechaArriva(25,3), _flechaAbajo(25,3)
@@ -31,7 +32,7 @@ SelectorCancion::SelectorCancion():_flechaArriva(25,3), _flechaAbajo(25,3)
 
 	for (std::string nombre : Archivo::getInstance().getListaNombres()) {
 
-		ElementoCancion aux;
+		ElementoConTexto aux;
 		aux.setNombreCancion(nombre);
 		aux.setAltura(_alturaOffset);
 		_elements.push_back(aux);
@@ -53,11 +54,9 @@ void SelectorCancion::selectorLoop()
 		
 	
 	
-	
-		checkHighlightArrow();
-		checkHighlightElements();
-		checkSelectedArrow();
-		checkSelectedElement();
+		checkHighlight();
+		checkPress();
+		
 		Render::getInstance().clear().dibujar(_background).dibujar(_flechaAbajo).dibujar(_flechaArriva);
 		
 
@@ -67,17 +66,18 @@ void SelectorCancion::selectorLoop()
 
 
 		
-		for (ElementoCancion& el : _elements) {
+		for (ElementoConTexto& el : _elements) {
 			if(el.isOnAltura())
 			Render::getInstance().dibujar(el.getElements());
 		}
 		Render::getInstance().display();	
 	}
-	Archivo::getInstance().cerrarDirectorio();
+	_cancion = false;
 }
 
-void SelectorCancion::checkHighlightArrow()
+void SelectorCancion::checkHighlight()
 {
+	//FLECHAS
 	if (_flechaArriva.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(Render::getInstance().devolver())))) {
 		_flechaArriva.setFillColor(sf::Color(135, 206, 250, 100));
 	}
@@ -92,11 +92,8 @@ void SelectorCancion::checkHighlightArrow()
 	{
 		_flechaAbajo.setFillColor(sf::Color::Transparent);
 	}
-}
-
-void SelectorCancion::checkHighlightElements()
-{
-	for (ElementoCancion& el:_elements)
+	//ELEMENTOS
+	for (ElementoConTexto& el : _elements)
 	{
 		if (el.isSelected()) {
 			el.highlight(true);
@@ -106,38 +103,43 @@ void SelectorCancion::checkHighlightElements()
 			el.highlight(false);
 		}
 	}
+
 }
 
-void SelectorCancion::checkSelectedArrow()
+void SelectorCancion::checkPress()
 {
-	if (_flechaArriva.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(Render::getInstance().devolver()))) && sf::Mouse::isButtonPressed(sf::Mouse::Left)&&_alturaOffset<100) {
-		_alturaOffset += _spaceBtwn;
-		relocateElements();
-	}
-	if (_flechaAbajo.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(Render::getInstance().devolver()))) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && _alturaOffset > ((_elements.size()-5)*_spaceBtwn*-1)) {
-		_alturaOffset -= _spaceBtwn;
-		relocateElements();
-	}
-	
-}
 
-void SelectorCancion::checkSelectedElement()
-{
-	for (int i = 0; i < _elements.size(); ++i)
-	{
-		if (_elements[i].isSelected() && _elements[i].isOnAltura()&& sf::Mouse::isButtonPressed(sf::Mouse::Left))
+
+	if (Joystick::getInstance().checkMouse()[0] == Left) {
+
+		//FLECHAS
+		if (_flechaArriva.getGlobalBounds().contains(Joystick::getInstance().getMousePos()) && _alturaOffset < 100) {
+			_alturaOffset += _spaceBtwn;
+			relocateElements();
+		}
+		if (_flechaAbajo.getGlobalBounds().contains(Joystick::getInstance().getMousePos()) && _alturaOffset > ((_elements.size() - 5) * _spaceBtwn * -1)) {
+			_alturaOffset -= _spaceBtwn;
+			relocateElements();
+		}
+		//ELEMENTOS
+		for (int i = 0; i < _elements.size(); ++i)
 		{
-			Archivo::getInstance().selectCancion(i);
-			_cancion = true;
+			if (_elements[i].isSelected() && _elements[i].isOnAltura())
+			{
+				Archivo::getInstance().selectCancion(i);
+				_cancion = true;
 
+			}
 		}
 	}
+	
+	
 }
 
 void SelectorCancion::relocateElements()
 {
 	float altTemp = _alturaOffset;
-	for (ElementoCancion &el : _elements) {
+	for (ElementoConTexto &el : _elements) {
 		el.setAltura(_alturaOffset);
 		_alturaOffset += _spaceBtwn;
 	}
