@@ -36,6 +36,7 @@ public:
 	int getCantNotas();
 	std::vector<std::vector<Nota>>& getCancionNotas();
 	
+	
 
 	
 
