@@ -149,14 +149,17 @@
     <ClCompile Include="Archivo.cpp" />
     <ClCompile Include="Cancion.cpp" />
     <ClCompile Include="Colision.cpp" />
+    <ClCompile Include="Configuracion.cpp" />
     <ClCompile Include="ElementoConTexto.cpp" />
     <ClCompile Include="Joystick.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Gameplay.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuScore.cpp" />
     <ClCompile Include="Nota.cpp" />
     <ClCompile Include="Pressable.cpp" />
     <ClCompile Include="Render.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="SelectorCancion.cpp" />
     <ClCompile Include="TextPress.cpp" />
   </ItemGroup>
@@ -165,13 +168,16 @@
     <ClInclude Include="Archivo.h" />
     <ClInclude Include="Cancion.h" />
     <ClInclude Include="Colision.h" />
+    <ClInclude Include="Configuracion.h" />
     <ClInclude Include="ElementoConTexto.h" />
     <ClInclude Include="Joystick.h" />
     <ClInclude Include="Gameplay.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuScore.h" />
     <ClInclude Include="Nota.h" />
     <ClInclude Include="Pressable.h" />
     <ClInclude Include="Render.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="SelectorCancion.h" />
     <ClInclude Include="Structs.h" />
     <ClInclude Include="TextPress.h" />

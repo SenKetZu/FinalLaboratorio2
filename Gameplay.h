@@ -39,6 +39,7 @@ public:
 	 void initSong();
 	 void setConfig();
 	 void gameLoop();
+	 void process();
 	 void inputs();
 	 void show();
 	 void showMenuPause(std::vector<ElementoConTexto>& ele, sf::RectangleShape pauseBackground);

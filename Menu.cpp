@@ -6,6 +6,7 @@
 #include "SelectorCancion.h"
 #include "Gameplay.h"
 #include "Archivo.h"
+#include "MenuScore.h"
 
 
 Menu::Menu()
@@ -56,6 +57,10 @@ void Menu::menuLoop()
 					break;
 
 				case Score:
+				{
+					MenuScore obj;
+				}
+					
 					break;
 
 				case Config:			

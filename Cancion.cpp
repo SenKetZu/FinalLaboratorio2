@@ -3,9 +3,17 @@
 #include "Archivo.h"
 
 
+bool Cancion::isFinished()
+{
+	if (_sonido.getStatus()==sf::SoundSource::Status::Stopped) {
+		return true;
+	}
+	return false;
+}
+
 Cancion::Cancion()
 {
-
+	
 }
 
 void Cancion::playMusic(bool y_n)

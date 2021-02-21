@@ -1,17 +1,19 @@
 #include "Menu.h"
 
-
+#include "MenuScore.h"
 
 
 
 int main(){
 
     
-    
-    Menu menu;
+   /*
+   Menu menu;
     menu.menuLoop();
     
-
+   */
+    
+    MenuScore menu;
     
 
     

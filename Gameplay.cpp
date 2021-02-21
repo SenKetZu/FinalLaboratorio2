@@ -21,7 +21,7 @@ void Gameplay::pause()
     menu.push_back(a);
     menu.push_back(a);
 
-
+ 
 
     menu[0].setNombreCancion("Continuar");
     menu[1].setNombreCancion("Salir");
@@ -97,6 +97,7 @@ void Gameplay::setConfig()
 {
     _cancion.SetCancionOsu();   
     _cancion.getSonido().setVolume(15);
+    _cancion.getSonido().setLoop(false);
     _cancion.getSonido().play();
 }
 
@@ -112,6 +113,7 @@ void Gameplay::gameLoop()
 
         Render::getInstance().handleEvents();
 
+        process();
 
         switch (_estadoActual)
         {
@@ -141,9 +143,18 @@ void Gameplay::gameLoop()
 
 }
 
+void Gameplay::process()
+{
+    if (_cancion.isFinished()) {
+        _estadoActual = Terminado;
+    }
+
+}
+
 void Gameplay::inputs()
 {
     _teclaPulsada = Joystick::getInstance().checkTeclado();
+
     for (KEYS tecla : _teclaPulsada) {
         switch (tecla)
         {
@@ -171,11 +182,6 @@ void Gameplay::show()
     Render::getInstance().clear().mostrarFondo().dibujar(_trast.getTrast());
 
     Render::getInstance().actualizarNotas(_cancion.getCancionNotas()).mostrarPuntaje();
-   
-    
-
-
-
 
     Render::getInstance().display();
 }

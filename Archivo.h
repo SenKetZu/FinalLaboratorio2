@@ -4,6 +4,7 @@
 #include "dirent.h"
 #include <vector>
 #include "Structs.h"
+#include "Score.h"
 
 class Archivo
 {
@@ -39,5 +40,7 @@ public:
 	std::vector<std::string> getListaNombres() { return _listaCancionesClean; }
 	void resetArchivo();
 	void cerrarDirectorio();
+	void loadScore(std::vector<Puntaje>& puntajes);
+	void saveScore(std::vector<Puntaje> puntajes);
 };
 

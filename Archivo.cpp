@@ -1,6 +1,7 @@
 #include "Archivo.h"
 #include <iostream>
 #include "dirent.h"
+#include "Score.h"
 
 #define EN_PRUEBA false
 
@@ -119,4 +120,38 @@ void Archivo::resetArchivo()
 void Archivo::cerrarDirectorio()
 {
 	closedir(_directorio);
+}
+
+void Archivo::loadScore(std::vector<Puntaje>& puntajes)
+{
+	FILE* Q;
+	Q = fopen("Score\\puntajes.pipo", "rb");
+	if (Q == NULL) { std::cout << std::endl << "error al leer los puntajes!"; return; }
+
+	for(Puntaje &x:puntajes)
+	{
+		Puntaje aux;
+		
+		fread(&aux, sizeof(Puntaje), 1, Q);
+		x.setNombre(aux.getNombre());
+		x.setPuntaje(aux.getPuntaje());
+	}
+	fclose(Q);
+}
+
+void Archivo::saveScore(std::vector<Puntaje> puntajes)
+{
+	FILE* Q;
+	Q = fopen("Score\\puntajes.pipo", "wb");
+	if (Q == NULL) { std::cout << std::endl << "error al guardar los puntajes"; return; }
+
+	for (Puntaje x : puntajes)
+	{
+		fwrite(&x,sizeof(Puntaje),1,Q);
+	}
+
+
+
+
+	fclose(Q);
 }

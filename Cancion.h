@@ -24,6 +24,9 @@ private:
 	void fillCancion();
 
 public:
+
+
+	bool isFinished();
 	Cancion();
 	void playMusic(bool y_n);
 	sf::Music& getSonido();
